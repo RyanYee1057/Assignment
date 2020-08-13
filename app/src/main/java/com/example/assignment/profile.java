@@ -20,8 +20,8 @@ public class profile extends AppCompatActivity{
         // Get the intent and its data.
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView textView = findViewById(R.id.name);
-        textView.setText(message);
+        //TextView textView = findViewById(R.id.name);
+        //textView.setText(message);
     }
 
     public void onRadioButtonClicked(View view) {
