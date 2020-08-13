@@ -10,4 +10,6 @@
     <string name="selected_bank">Selected Online Banking</string>
     <string name="selected_card">Selected Credit Card</string>
     <string name="selected_Ewallet">Selected TNG E-wallet</string>
+    <string name="button">Button</string>
+    <string name="suck">suck</string>
 </resources>
