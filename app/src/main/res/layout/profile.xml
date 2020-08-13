@@ -20,14 +20,18 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
-        android:id="@+id/name_label"
-        android:layout_width="70dp"
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/user_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/profile"
+        android:textColor="#89F6EC"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -36,15 +40,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
         android:layout_marginLeft="23dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
         android:hint="@string/enter_your_name"
         android:importantForAutofill="no"
-        android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
         android:id="@+id/Email"
@@ -140,5 +144,16 @@
             android:onClick="onRadioButtonClicked"
             android:text="@string/tng_e_wallet" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="19dp"
+        android:text="@string/user_name"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
