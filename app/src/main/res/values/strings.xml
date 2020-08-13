@@ -16,4 +16,5 @@
     <string name="enter_phone_number">Enter phone number</string>
     <string name="enter_email_address">Enter email address</string>
     <string name="profile">Profile</string>
+    <string name="name">Name</string>
 </resources>
