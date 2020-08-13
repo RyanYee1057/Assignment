@@ -3,11 +3,10 @@ package com.example.assignment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,21 +14,20 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
 
+    //private String Message;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Button start = findViewById(R.id.start);
+        start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,
-                        OrderActivity.class);
-                intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+                        profile.class);
+                //intent.putExtra(EXTRA_MESSAGE, Message);
                 startActivity(intent);
             }
         });
@@ -39,5 +37,4 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
     }
-
 }

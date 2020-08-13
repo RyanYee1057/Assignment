@@ -9,7 +9,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class profile extends AppCompatActivity {
+public class profile extends AppCompatActivity{
+        //implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,7 @@ public class profile extends AppCompatActivity {
         // Get the intent and its data.
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView textView = findViewById(R.id.textView);
+        TextView textView = findViewById(R.id.name_label);
         textView.setText(message);
     }
 
@@ -45,7 +46,6 @@ public class profile extends AppCompatActivity {
                 break;
         }
     }
-
 
     public void displayMsg(String message) {
         Toast.makeText(getApplicationContext(), message,
