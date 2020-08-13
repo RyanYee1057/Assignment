@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Assignment</string>
+    <string name="user_name">User Name</string>
+    <string name="todo">TODO</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="online_banking">Online Banking</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="tng_e_wallet">TNG E-wallet</string>
+    <string name="selected_bank">Selected Online Banking</string>
+    <string name="selected_card">Selected Credit Card</string>
+    <string name="selected_Ewallet">Selected TNG E-wallet</string>
 </resources>
