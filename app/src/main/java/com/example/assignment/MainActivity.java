@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setContentView(R.layout.nav_activity_main);
 
         Button start = findViewById(R.id.start);
         start.setOnClickListener(new View.OnClickListener() {
@@ -40,30 +39,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.nav_profile:
-                        Toast.makeText(MainActivity.this,"Profile",Toast.LENGTH_SHORT).show();
-                        Intent profileIntent = new Intent(MainActivity.this, profile.class);
-                        startActivity(profileIntent);
-                        break;
-                    case R.id.nav_movies:
-                        Toast.makeText(MainActivity.this,"Already in movie activity",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.nav_purchase_history:
-                        Toast.makeText(MainActivity.this,"Purchase_history",Toast.LENGTH_SHORT).show();
-                        //Intent puchaseHistoryIntent = new Intent(MainActivity.this, purchaseHistory.class);
-                        //startActivity(puchaseHistoryIntent);
-                        break;
-                }
-                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
     }
 
     public void displayMsg(String message) {
