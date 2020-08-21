@@ -31,6 +31,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button next = findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,
+                        profile_pic.class);
+                //intent.putExtra(EXTRA_MESSAGE, Message);
+                startActivity(intent);
+            }
+        });
     }
 
     public void displayMsg(String message) {
