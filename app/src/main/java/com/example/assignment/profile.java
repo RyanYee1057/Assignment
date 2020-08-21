@@ -59,9 +59,7 @@ public class profile extends AppCompatActivity{
                     Toast.makeText(profile.this, "Done!", Toast.LENGTH_SHORT).show(); //For Test (pop-up)
                 }
             }
-
         });
-        ///
     }
 
     public void onRadioButtonClicked(View view) {
