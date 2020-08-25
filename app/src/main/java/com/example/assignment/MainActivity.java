@@ -30,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
 
+
+    ListView listView;
+    String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
+    String mDescription[] = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
+    int images[] = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
+
+    //private String Message;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,5 +68,59 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        listView = findViewById(R.id.listView);
+        MyAdapter adapter =  new MyAdapter(this,mTitle,mDescription,images);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0){
+                    Toast.makeText(MainActivity.this, "Movie 1 clicked",Toast.LENGTH_SHORT).show();
+                }
+                if(position == 0){
+                    Toast.makeText(MainActivity.this, "Movie 2 clicked",Toast.LENGTH_SHORT).show();
+                }
+                if(position == 0){
+                    Toast.makeText(MainActivity.this, "Movie 3 clicked",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+    public void displayMsg(String message) {
+        Toast.makeText(getApplicationContext(), message,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    public class MyAdapter extends ArrayAdapter<String> {
+        Context context;
+        String rTitle[];
+        String rDescription[];
+        int rImgs[];
+
+        MyAdapter(Context c, String title[], String description[], int imgs[]) {
+            super(c, R.layout.row, R.id.textView1, title);
+            this.context = c;
+            this.rTitle = title;
+            this.rDescription = description;
+            this.rImgs = imgs;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            LayoutInflater layoutInflater = (LayoutInflater) context.getApplicationContext().getSystemService(context.LAYOUT_INFLATER_SERVICE);
+            View row = layoutInflater.inflate(R.layout.row, parent, false);
+            ImageView image = row.findViewById(R.id.image);
+            TextView myTitle = row.findViewById(R.id.textView1);
+            TextView myDescription = row.findViewById(R.id.textView2);
+
+            image.setImageResource(rImgs[position]);
+            myTitle.setText(rTitle[position]);
+            myDescription.setText(rDescription[position]);
+            return row;
+        }
     }
 }
