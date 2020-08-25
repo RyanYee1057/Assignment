@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(Login.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Login.this,profile.class));
+                            startActivity(new Intent(Login.this,MainActivity.class));
                             loadingBar.dismiss();
                         }
                     }

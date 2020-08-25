@@ -1,11 +1,26 @@
 package com.example.assignment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,35 +29,97 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
 
+
+    ListView listView;
+    String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
+    String mDescription[] = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
+    int images[] = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
+
     //private String Message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button login = findViewById(R.id.login);
-        login.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.nav_activity_main);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,
-                        Login.class);
-                startActivity(intent);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_profile:
+                        Toast.makeText(MainActivity.this,"Profile",Toast.LENGTH_SHORT).show();
+                        Intent profileIntent = new Intent(MainActivity.this, profile.class);
+                        startActivity(profileIntent);
+                        break;
+                    case R.id.nav_movies:
+                        Toast.makeText(MainActivity.this,"Already in movie activity",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_purchase_history:
+                        Toast.makeText(MainActivity.this,"Purchase_history",Toast.LENGTH_SHORT).show();
+                        //Intent puchaseHistoryIntent = new Intent(MainActivity.this, purchaseHistory.class);
+                        //startActivity(puchaseHistoryIntent);
+                        break;
+                }
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             }
         });
-        Button start = findViewById(R.id.start);
-        start.setOnClickListener(new View.OnClickListener() {
+
+        listView = findViewById(R.id.listView);
+        MyAdapter adapter =  new MyAdapter(this,mTitle,mDescription,images);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,
-                        profile.class);
-                //intent.putExtra(EXTRA_MESSAGE, Message);
-                startActivity(intent);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0){
+                    Toast.makeText(MainActivity.this, "Movie 1 clicked",Toast.LENGTH_SHORT).show();
+                }
+                if(position == 0){
+                    Toast.makeText(MainActivity.this, "Movie 2 clicked",Toast.LENGTH_SHORT).show();
+                }
+                if(position == 0){
+                    Toast.makeText(MainActivity.this, "Movie 3 clicked",Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
     }
 
     public void displayMsg(String message) {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public class MyAdapter extends ArrayAdapter<String> {
+        Context context;
+        String rTitle[];
+        String rDescription[];
+        int rImgs[];
+
+        MyAdapter(Context c, String title[], String description[], int imgs[]) {
+            super(c, R.layout.row, R.id.textView1, title);
+            this.context = c;
+            this.rTitle = title;
+            this.rDescription = description;
+            this.rImgs = imgs;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            LayoutInflater layoutInflater = (LayoutInflater) context.getApplicationContext().getSystemService(context.LAYOUT_INFLATER_SERVICE);
+            View row = layoutInflater.inflate(R.layout.row, parent, false);
+            ImageView image = row.findViewById(R.id.image);
+            TextView myTitle = row.findViewById(R.id.textView1);
+            TextView myDescription = row.findViewById(R.id.textView2);
+
+            image.setImageResource(rImgs[position]);
+            myTitle.setText(rTitle[position]);
+            myDescription.setText(rDescription[position]);
+            return row;
+        }
     }
 }
