@@ -56,5 +56,13 @@
         (such as your email address or other contact information)\n1. Tickets sold are non-refundable.\n2. Please check the transaction amount before payment.
         Any disputes in the transaction amount discovered
         thereafter will not be entertained.</string>
+    <string name="promotion">Promotion</string>
+    <string name="combo_popcorn">Combo Popcorn</string>
+    <string name="ala_carte_popcorn">Ala carte Popcorn</string>
+    <string name="snacks">Snacks</string>
+    <string name="beverages">Beverages</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

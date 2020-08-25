@@ -3,6 +3,7 @@ package com.example.assignment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,27 +20,36 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity"; //test
+    private add_onAdapter nAdapter; //SectionsStatePager
+    private ViewPager mViewPager;
+
     // Tag for the intent extra.
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
 
-
     ListView listView;
-    String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
-    String mDescription[] = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
-    int images[] = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
+    String[] mTitle = {"Movie 1", "Movie 2", "Movie 3"};
+    String[] mDescription = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
+    int[] images = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
 
-    //private String Message;
+    private String Message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //test
+        setContentView(R.layout.activity_main);
+       /*
+
         setContentView(R.layout.nav_activity_main);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -85,7 +95,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+*/
+    }
 
+    //test
+    /*
+    public void setupViewPager(ViewPager viewPager){
+        add_onAdapter adapter = new add_onAdapter(getSupportFragmentManager());
+        adapter.addFragment(new add_on1(), "add_on1");
+        adapter.addFragment(new add_on2(), "add_on2");
+        viewPager.setAdapter(adapter);
+    }
+
+    public void setViewPager(int fragmentNumber){
+        mViewPager.setCurrentItem(fragmentNumber);
     }
 
     public void displayMsg(String message) {
@@ -121,5 +144,12 @@ public class MainActivity extends AppCompatActivity {
             myDescription.setText(rDescription[position]);
             return row;
         }
+    }
+    */
+
+    public void onAdd(View view){
+        Intent intent = new Intent (MainActivity.this, add_on1.class);
+        startActivity(intent);
+
     }
 }
