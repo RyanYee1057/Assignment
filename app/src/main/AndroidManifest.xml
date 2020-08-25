@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".profile"></activity>
+        <activity android:name=".Login"></activity>
+        <activity android:name=".SignUp"></activity>
+        <activity android:name=".ForgotPwd"></activity>
     </application>
 
 </manifest>
