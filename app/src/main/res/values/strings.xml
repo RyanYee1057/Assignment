@@ -17,4 +17,29 @@
     <string name="enter_email_address">Enter email address</string>
     <string name="profile">Profile</string>
     <string name="name">Name</string>
+
+    <string name="prompt_email">Enter Email</string>
+    <string name="prompt_password">Enter Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot"><b><u>FORGOT PASSWORD?</u></b></string>
+    <string name="login"><b>LOGIN</b></string>
+    <string name="sign_up"><u>Sign Up For ABX</u></string>
+
+    <string name="signUp">Sign Up</string>
+    <string name="phone">Phone</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="agree">I agree with the </string>
+    <string name="tnc"><a href="">terms and conditions</a></string>
+    <string name="terms"><b>Terms and Conditions</b></string>
+    <string name="create_account"><b>Create Account</b></string>
+    <string name="reset">Reset Password</string>
+    <string name="instruction">To reset your password, Please enter your registered email here!</string>
+    <string name="condition"> We do not sell your personal data to third party and we do not share information that directly identifies you
+        (such as your email address or other contact information)\n1. Tickets sold are non-refundable.\n2. Please check the transaction amount before payment.
+        Any disputes in the transaction amount discovered
+        thereafter will not be entertained.</string>
 </resources>

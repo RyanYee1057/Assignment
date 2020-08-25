@@ -20,7 +20,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Button login = findViewById(R.id.login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,
+                        Login.class);
+                startActivity(intent);
+            }
+        });
         Button start = findViewById(R.id.start);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
