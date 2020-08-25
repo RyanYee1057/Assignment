@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_gallery">
+    app:startDestination="@+id/nav_main">
 
     <activity
         android:id="@+id/nav_profile"
@@ -11,15 +11,9 @@
         android:label="Profile"
         tools:layout="@layout/profile" />
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.assignment.ui.gallery.GalleryFragment"
+    <activity
+        android:id="@+id/nav_main"
+        android:name="com.example.assignment.MainActivity"
         android:label="Movie"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.assignment.ui.slideshow.SlideshowFragment"
-        android:label="Purchase History"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/activity_main" />
 </navigation>
