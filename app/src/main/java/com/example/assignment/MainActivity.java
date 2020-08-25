@@ -28,7 +28,6 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity"; //test
-    private add_onAdapter nAdapter; //SectionsStatePager
     private ViewPager mViewPager;
 
     // Tag for the intent extra.
