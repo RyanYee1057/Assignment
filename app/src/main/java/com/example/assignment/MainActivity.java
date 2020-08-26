@@ -27,7 +27,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity"; //test
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     // Tag for the intent extra.
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
-
 
     ListView listView;
     String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
@@ -50,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //test
-        setContentView(R.layout.activity_main);
-
+        //setContentView(R.layout.activity_main);
 
         setContentView(R.layout.nav_activity_main);
 
@@ -79,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
 
         View navIcon = findViewById(R.id.toolbar_icon);
         navIcon.setOnClickListener((new View.OnClickListener(){
@@ -109,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void displayMsg(String message) {
@@ -147,10 +142,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void onAdd(View view){
         Intent intent = new Intent (MainActivity.this, add_on1.class);
         startActivity(intent);
-
     }
 }
