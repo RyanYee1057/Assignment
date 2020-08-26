@@ -48,7 +48,6 @@ public class Login extends AppCompatActivity {
          String checkbox = preferences.getString("rememberMe", "");
          if (checkbox.equals("false")){
              FirebaseAuth.getInstance().signOut();
-         }else{
              SharedPreferences.Editor editor = preferences.edit();
              editor.putString("rememberMe","true");
              editor.apply();
@@ -67,14 +66,15 @@ public class Login extends AppCompatActivity {
                 ed2.requestFocus();
                 Toast.makeText(Login.this,"Fields Are Empty",Toast.LENGTH_SHORT).show();
             }
-            else if(!(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())){
-                ed1.setError("invalid email");
-                ed1.requestFocus();
-            }
             else if(email.isEmpty()){
                 ed1.setError("Please enter your email");
                 ed1.requestFocus();
             }
+            else if(!(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())){
+                ed1.setError("invalid email");
+                ed1.requestFocus();
+            }
+
             else if(pwd.isEmpty()){
                 ed2.setError("Please enter your password");
                 ed2.requestFocus();
@@ -108,9 +108,9 @@ public class Login extends AppCompatActivity {
              @Override
              public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                  FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-                 /*if(mFirebaseUser!=null){
+               /*  if(mFirebaseUser!=null){
                     Toast.makeText(Login.this,"You are logged in",Toast.LENGTH_SHORT).show();
-                     startActivity(new Intent(Login.this,profile.class));
+                     startActivity(new Intent(Login.this,MainActivity.class));
                  }
                  else{
                      Toast.makeText(Login.this,"Please Login",Toast.LENGTH_SHORT).show();

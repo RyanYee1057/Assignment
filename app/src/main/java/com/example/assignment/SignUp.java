@@ -85,7 +85,7 @@ public class SignUp extends AppCompatActivity {
                 }
                 else {
                     loadingBar.setTitle("\tCreating New Account");
-                    loadingBar.setMessage("Loading...");
+                    loadingBar.setMessage("Please wait...");
                     loadingBar.show();
                     loadingBar.setCanceledOnTouchOutside(true);
                     mFirebaseAuth.createUserWithEmailAndPassword(email, cPassword).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
@@ -112,7 +112,6 @@ public class SignUp extends AppCompatActivity {
                 mBuilder.setView(mView);
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
-                dialog.getWindow().setBackgroundDrawableResource(android.R.color.background_light);
             }
         });
     }
