@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             return row;
         }
     }
-    */
+
 
     public void onAdd(View view){
         Intent intent = new Intent (MainActivity.this, add_on1.class);
