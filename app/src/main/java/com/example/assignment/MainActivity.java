@@ -3,6 +3,7 @@ package com.example.assignment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -22,15 +23,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity"; //test
+    private ViewPager mViewPager;
+
     // Tag for the intent extra.
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
+
 
     ListView listView;
     String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
@@ -42,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //test
+        setContentView(R.layout.activity_main);
+
+
         setContentView(R.layout.nav_activity_main);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -99,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void displayMsg(String message) {
@@ -135,5 +145,12 @@ public class MainActivity extends AppCompatActivity {
             myDescription.setText(rDescription[position]);
             return row;
         }
+    }
+
+
+    public void onAdd(View view){
+        Intent intent = new Intent (MainActivity.this, add_on1.class);
+        startActivity(intent);
+
     }
 }
