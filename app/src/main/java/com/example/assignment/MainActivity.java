@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,12 +18,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +37,13 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
 
-    ListView listView;
-    String[] mTitle = {"Movie 1", "Movie 2", "Movie 3"};
-    String[] mDescription = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
-    int[] images = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
 
-    private String Message;
+    ListView listView;
+    String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
+    String mDescription[] = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
+    int images[] = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
+
+    //private String Message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         //test
         setContentView(R.layout.activity_main);
-       /*
+
 
         setContentView(R.layout.nav_activity_main);
 
@@ -75,6 +80,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        View navIcon = findViewById(R.id.toolbar_icon);
+        navIcon.setOnClickListener((new View.OnClickListener(){
+            @Override
+            public  void onClick(View v){
+                Toast.makeText(MainActivity.this,"Nav clicked",Toast.LENGTH_SHORT).show();
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        }));
+
         listView = findViewById(R.id.listView);
         MyAdapter adapter =  new MyAdapter(this,mTitle,mDescription,images);
         listView.setAdapter(adapter);
@@ -93,20 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-*/
-    }
 
-    //test
-    /*
-    public void setupViewPager(ViewPager viewPager){
-        add_onAdapter adapter = new add_onAdapter(getSupportFragmentManager());
-        adapter.addFragment(new add_on1(), "add_on1");
-        adapter.addFragment(new add_on2(), "add_on2");
-        viewPager.setAdapter(adapter);
-    }
-
-    public void setViewPager(int fragmentNumber){
-        mViewPager.setCurrentItem(fragmentNumber);
     }
 
     public void displayMsg(String message) {
