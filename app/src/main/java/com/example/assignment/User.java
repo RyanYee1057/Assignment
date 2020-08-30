@@ -2,12 +2,7 @@ package com.example.assignment;
 public class User {
 
     private String email;
-    private String fullName;
-    private String profession;
-    private String workplace;
     private String phone;
-    private String password;
-    private String sex;
 
     public User() {}
 
@@ -15,8 +10,6 @@ public class User {
         this.email = email;
         this.phone = phone;
     }
-
-
 
     public void setPhone(String phone) {
         this.phone = phone;
