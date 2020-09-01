@@ -69,6 +69,7 @@
     <string name="synopsis">Synopsis</string>
     <string name="actors">Actors</string>
     <string name="director">Director</string>
+    <string name="timeslot">Timeslot</string>
 
     <string name="bloodshotTitle">Bloodshot</string>
     <string name="bloodshotDescription">P13 - Action, Adventure - 107 Minutes - English</string>
