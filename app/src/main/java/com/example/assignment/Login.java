@@ -46,14 +46,11 @@ public class Login extends AppCompatActivity {
          // Remember me
          SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
          String checkbox = preferences.getString("rememberMe", "");
-         if (checkbox.equals("false")){
+         if (checkbox.equals("false")) {
              FirebaseAuth.getInstance().signOut();
-             SharedPreferences.Editor editor = preferences.edit();
-             editor.putString("rememberMe","true");
-             editor.apply();
          }
 
-        btn.setOnClickListener(new View.OnClickListener(){
+         btn.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             String email =ed1.getText().toString();
@@ -74,7 +71,6 @@ public class Login extends AppCompatActivity {
                 ed1.setError("invalid email");
                 ed1.requestFocus();
             }
-
             else if(pwd.isEmpty()){
                 ed2.setError("Please enter your password");
                 ed2.requestFocus();
@@ -108,13 +104,6 @@ public class Login extends AppCompatActivity {
              @Override
              public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                  FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-               /*  if(mFirebaseUser!=null){
-                    Toast.makeText(Login.this,"You are logged in",Toast.LENGTH_SHORT).show();
-                     startActivity(new Intent(Login.this,MainActivity.class));
-                 }
-                 else{
-                     Toast.makeText(Login.this,"Please Login",Toast.LENGTH_SHORT).show();
-                 }*/
              }
          };
         text.setOnClickListener(new View.OnClickListener() {
