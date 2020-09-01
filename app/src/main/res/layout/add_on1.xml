@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -67,18 +68,251 @@
             android:orientation="vertical"
             android:visibility="visible">
 
-            <LinearLayout
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="110dp"
-                    android:layout_height="130dp"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@android:drawable/ic_menu_gallery" />
-            </LinearLayout>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/promo1"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Promotion Set 1" />
+
+                            <ImageButton
+                                android:id="@+id/promo1_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_promo1"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/promo1_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/promo2"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Promotion Set 2" />
+
+                            <ImageButton
+                                android:id="@+id/promo2_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_promo2"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/promo2_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/promo3"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Promotion Set 3" />
+
+                            <ImageButton
+                                android:id="@+id/promo3_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_promo3"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/promo3_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/promo4"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Promotion Set 4" />
+
+                            <ImageButton
+                                android:id="@+id/promo4_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_promo4"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/promo4_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -86,28 +320,774 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"/>
+            android:visibility="gone">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/combo1"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Combo Set 1" />
+
+                            <ImageButton
+                                android:id="@+id/combo1_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_combo1"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/combo1_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/combo2"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Combo Set 2" />
+
+                            <ImageButton
+                                android:id="@+id/combo2_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_combo2"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/combo2_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/combo3"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Combo Set 3" />
+
+                            <ImageButton
+                                android:id="@+id/combo3_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_combo3"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/combo3_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/combo4"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Combo Set 4" />
+
+                            <ImageButton
+                                android:id="@+id/combo4_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_combo4"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/combo4_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ala_carte_screen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"></LinearLayout>
+            android:visibility="gone">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/alaCarte1"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="@string/ala_carte_popcorn" />
+
+                            <ImageButton
+                                android:id="@+id/alaCarte1_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_alaCarte1"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/alaCarte1_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/alaCarte2"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="@string/ala_carte_popcorn" />
+
+                            <ImageButton
+                                android:id="@+id/alaCarte2_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_alaCarte2"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/alaCarte2_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/snacks_screen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"></LinearLayout>
+            android:visibility="gone">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/snacks1"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Snacks Set 1" />
+
+                            <ImageButton
+                                android:id="@+id/snacks1_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_snacks1"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/snacks1_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/snacks2"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Snacks Set 2" />
+
+                            <ImageButton
+                                android:id="@+id/snacks2_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_snacks2"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/snacks2_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/beverages_screen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"></LinearLayout>
+            android:visibility="gone">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/beverages1"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="beverages 1" />
+
+                            <ImageButton
+                                android:id="@+id/beverages1_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_beverages1"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/beverages1_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/beverages2"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="beverages 2" />
+
+                            <ImageButton
+                                android:id="@+id/beverages2_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_beverages2"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/beverages2_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/beverages3"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="beverages3" />
+
+                            <ImageButton
+                                android:id="@+id/beverages3_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_beverages3"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/beverages3_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/beverages4"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="beverages4" />
+
+                            <ImageButton
+                                android:id="@+id/beverages4_minus"
+                                style="@style/MinusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="decreaseNum" />
+
+                            <TextView
+                                android:id="@+id/num_beverages4"
+                                style="@style/ScoreText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/initial_count"
+                                android:textSize="36sp" />
+
+                            <ImageButton
+                                android:id="@+id/beverages4_plus"
+                                style="@style/PlusButtons"
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/todo"
+                                android:onClick="increaseNum" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

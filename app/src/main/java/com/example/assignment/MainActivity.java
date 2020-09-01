@@ -25,7 +25,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity"; //test
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     // Tag for the intent extra.
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
-
 
     ListView listView;
     String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
@@ -56,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this,Login.class));
         }
         //test
-        setContentView(R.layout.activity_main);
-
+        //setContentView(R.layout.activity_main);
 
         setContentView(R.layout.nav_activity_main);
 
@@ -113,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void displayMsg(String message) {
@@ -151,11 +147,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void onAdd(View view){
         Intent intent = new Intent (MainActivity.this, add_on1.class);
         startActivity(intent);
-
     }
     public void test(View view){
         FirebaseAuth.getInstance().signOut();
