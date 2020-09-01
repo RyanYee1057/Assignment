@@ -18,9 +18,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
+    private static final String USERS = "users";
+    private User user;
     private EditText e, p, pwd1, pwd2;
     private Button btn1;
     private TextView tnc;
@@ -30,6 +37,8 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
+        database = FirebaseDatabase.getInstance();
+        mDatabase = database.getReference(USERS);
         mFirebaseAuth = FirebaseAuth.getInstance();
         btn1 = findViewById(R.id.createAcc);
         e = findViewById(R.id.editTextEmail);
@@ -39,6 +48,8 @@ public class SignUp extends AppCompatActivity {
         tnc= findViewById(R.id.tnc);
         cb=findViewById(R.id.terms);
         loadingBar = new ProgressDialog(this);
+
+        //create account
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +57,7 @@ public class SignUp extends AppCompatActivity {
                 String phone = p.getText().toString();
                 String password = pwd1.getText().toString();
                 String cPassword = pwd2.getText().toString();
+                user= new User(email,phone);
                 if(email.isEmpty()&&phone.isEmpty()&&password.isEmpty()&&cPassword.isEmpty()){
                     e.setError("Please enter your email");
                     e.requestFocus();
@@ -96,6 +108,8 @@ public class SignUp extends AppCompatActivity {
                                 loadingBar.dismiss();
                             } else {
                                 loadingBar.dismiss();
+                                FirebaseUser user = mFirebaseAuth.getCurrentUser();
+                                updateUI(user);
                                 Toast.makeText(SignUp.this, "Sign up successful!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignUp.this, Login.class));
                             }
@@ -104,6 +118,8 @@ public class SignUp extends AppCompatActivity {
                 }
             }
         });
+
+        //terms and conditions
         tnc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,5 +131,9 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
-
+    public void updateUI(FirebaseUser currentUser) {
+        String keyID = mDatabase.push().getKey();
+        //adding user info to database
+        mDatabase.child(keyID).setValue(user);
+    }
 }

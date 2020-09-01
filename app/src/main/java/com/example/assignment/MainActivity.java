@@ -23,12 +23,13 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity"; //test
     private ViewPager mViewPager;
-
+    FirebaseAuth mFirebaseAuth;
     // Tag for the intent extra.
     public static final String EXTRA_MESSAGE =
             "com.example.android.assignment.extra.MESSAGE";
@@ -43,7 +44,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mFirebaseAuth=FirebaseAuth.getInstance();
+        FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        if(mFirebaseUser!=null){
+            Toast.makeText(MainActivity.this,"You are logged in",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(MainActivity.this,"Please Login",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,Login.class));
+        }
         //test
         //setContentView(R.layout.activity_main);
 
@@ -78,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         navIcon.setOnClickListener((new View.OnClickListener(){
             @Override
             public  void onClick(View v){
-                Toast.makeText(MainActivity.this,"Nav clicked",Toast.LENGTH_SHORT).show();
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.openDrawer(GravityCompat.START);
             }
