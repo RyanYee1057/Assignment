@@ -64,5 +64,40 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--Product detail from huiru-->
+    <string name="productdetail">Product Detail</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="actors">Actors</string>
+    <string name="director">Director</string>
+
+    <string name="bloodshotTitle">Bloodshot</string>
+    <string name="bloodshotDescription">P13 - Action, Adventure - 107 Minutes - English</string>
+    <string name="bloodshotSummary">Bloodshot, an ex-killer for the mob, is kidnapped and injected with microscopic computers called nanites. They erase his brain and rebuild it and his body to be a weapon with superhuman strength and healing powers. Bloodshot escapes his makers, tries to figure out who he was, and takes revenge on those who betrayed him. Based on the Valiant Comics series by the same name.
+    </string>
+    <string name="bloodshotActors">Vin Diesel, Eiza Gonzalez, Sam Heughan, Toby Kebbell, Talulah Riley, Lamorne Morris, Guy Pearce, Jóhannes Jóhannesson, Alex Hernandez, Siddharth Dhananjay</string>
+    <string name="bloodshotDirector">David Wilson</string>
+
+    <string name="onwardTitle">Onward</string>
+    <string name="onwardDescription">U - Adventure, Fantasy - 102 Minutes - English</string>
+    <string name="onwardSummary">In Disney and Pixar\'s ONWARD, two teenage elf brothers Ian and Barley Lightfoot (voices of Tom Holland and Chris Pratt) get an unexpected opportunity to spend one more day with their late dad and embark on an extraordinary quest aboard Barley\'s epic van Guinevere. Like any good quest, their journey is filled with magic spells, cryptic maps, impossible obstacles, and unimaginable discoveries. But when the boys\' fearless mom Laurel (voice of Julia Louis-Dreyfus) realizes that her sons are missing, she teams up with a part-lion, part-bat, part-scorpion, former warrior – aka The Manticore (voice of Octavia Spencer) – and heads off to find them. Perilous curses aside, this one magical day could mean more than any of them ever dreamed.
+    </string>
+    <string name="onwardActors">Tom Holland, Chris Pratt, Julia Louis-Dreyfus, Octavia Spencer, Mel Rodriguez, Kyle Bornheimer, Lena Waithe, Ali Wong, Grey Griffin, Tracey Ullman, Wilmer Valderrama, George Psarras, John Ratzenberger</string>
+    <string name="onwardDirector">Dan Scanlon</string>
+
+    <string name="sonicTitle">Sonic The Hedgedog</string>
+    <string name="sonicDescription">P13 - Action, Adventure - 98 Minutes - English</string>
+    <string name="sonicSummary">The world needed a hero, we got a hedgehog. Powered with incredible speed, Sonic The Hedgehog (voiced by Ben Schwartz), aka The Blue Blur, embraces his new home on Earth. That is, until he accidentally knocks out the power grid and sparks the attention of super-uncool evil genius Dr. Robotnik (Jim Carrey). Now it’s super-villain vs. super-sonic in an all-out race across the globe to stop Robotnik from using Sonic’s unique power for world domination. Sonic teams up with The Donut Lord, aka Sheriff Tom Wachowski (James Marsden), to save the planet in this live-action adventure comedy that’s fun for the whole family.
+    </string>
+    <string name="sonicActors">James Marsden, Tika Sumpter, Jim Carrey, Ben Schwartz</string>
+    <string name="sonicDirector">Jeff Fowler</string>
+
+    <string name="_4_30pm">4.30pm</string>
+    <string name="_7_00pm">7.00pm</string>
+    <string name="_1_15pm">1.15pm</string>
+    <string name="_3_45pm">3.45pm</string>
+    <string name="_9_00am">9.00am</string>
+    <string name="_11_00am">11.00am</string>
+    <!--Product detail from huiru-->
+
 
 </resources>
