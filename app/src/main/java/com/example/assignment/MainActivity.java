@@ -69,12 +69,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         View navIcon = findViewById(R.id.toolbar_icon);
         navIcon.setOnClickListener((new View.OnClickListener(){
             @Override
             public  void onClick(View v){
-                Toast.makeText(MainActivity.this,"Nav clicked",Toast.LENGTH_SHORT).show();
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.openDrawer(GravityCompat.START);
             }
