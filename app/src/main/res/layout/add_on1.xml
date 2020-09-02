@@ -32,11 +32,11 @@
                 android:text="@string/promotion" />
 
             <Button
-                android:id="@+id/comboPop"
+                android:id="@+id/comboSet"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:onClick="onCombo"
-                android:text="@string/combo_popcorn"
+                android:text="Combo Set"
                 android:visibility="visible" />
 
             <Button
