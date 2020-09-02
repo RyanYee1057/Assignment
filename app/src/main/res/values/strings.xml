@@ -100,4 +100,24 @@
     <!--Product detail from huiru-->
 
 
+    <string name="paymentsuccess">paymentsuccesspic</string>
+    <string name="paymentsuccesstext">Ticket Bought Successfully !</string>
+    <string name="exitpaymentsuccess"><![CDATA[< Return]]></string>
+    <string name="exitPaymentHistory"><![CDATA[< Payment History]]></string>
+    <string name="cardholder_name">Cardholder Name</string>
+    <string name="cardholder_number">CardHolder Number</string>
+    <string name="card_number">0000-0000-0000-0000</string>
+    <string name="confirm_payment">Confirm payment</string>
+    <string name="card_type">Card Type</string>
+    <string name="expiration_date">Expiration Date</string>
+    <string name="other_payment_method">Other Payment Method</string>
+    <string name="cancel_payment">Cancel Payment and Return to previous screen</string>
+    <string name="user_agreement">I agree to have my payment details securely saved for future purchases</string>
+    <string name="cardtype">cardType</string>
+    <string name="cvv">CVV</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="credit_title">Credit Card or Debit Card</string>
+    <!--Payment -->
+
+
 </resources>
