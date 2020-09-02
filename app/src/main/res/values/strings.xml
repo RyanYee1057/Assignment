@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Assignment</string>
+    <string name="app_name">ABX Cinema</string>
     <string name="user_name">User Name</string>
     <string name="todo">TODO</string>
     <string name="phone_number">Phone Number</string>
@@ -41,7 +41,7 @@
     <string name="forgot"><b><u>FORGOT PASSWORD?</u></b></string>
     <string name="login"><b>LOGIN</b></string>
     <string name="sign_up"><u>Sign Up For ABX</u></string>
-
+    <string name="sign_out">Sign Out</string>
     <string name="signUp">Sign Up</string>
     <string name="phone">Phone</string>
     <string name="password">Password</string>
@@ -56,6 +56,7 @@
         (such as your email address or other contact information)\n1. Tickets sold are non-refundable.\n2. Please check the transaction amount before payment.
         Any disputes in the transaction amount discovered
         thereafter will not be entertained.</string>
+    <string name="img">1</string>
     <string name="promotion">Promotion</string>
     <string name="combo_popcorn">Combo Popcorn</string>
     <string name="ala_carte_popcorn">Ala carte Popcorn</string>
@@ -63,12 +64,16 @@
     <string name="beverages">Beverages</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="initial_count">0</string>
+    <string name="minus_button_description">Minus Button</string>
+    <string name="plus_button_description">Plus Button</string>
 
     <!--Product detail from huiru-->
     <string name="productdetail">Product Detail</string>
     <string name="synopsis">Synopsis</string>
     <string name="actors">Actors</string>
     <string name="director">Director</string>
+    <string name="timeslot">Timeslot</string>
 
     <string name="bloodshotTitle">Bloodshot</string>
     <string name="bloodshotDescription">P13 - Action, Adventure - 107 Minutes - English</string>

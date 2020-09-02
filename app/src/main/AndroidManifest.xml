@@ -10,9 +10,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".payment_history"></activity>
@@ -35,10 +34,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".profile" />
-        <activity android:name=".Login" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".ForgotPwd" />
+        <activity android:name=".profile"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".SignUp"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ForgotPwd"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".add_on1" />
     </application>
 
