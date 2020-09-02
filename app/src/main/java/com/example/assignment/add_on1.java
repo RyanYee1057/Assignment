@@ -13,9 +13,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class add_on1 extends AppCompatActivity {
 
@@ -35,10 +42,14 @@ public class add_on1 extends AppCompatActivity {
     LinearLayout L1, L2, L3, L4, L5;
     ImageView a1, a2;
 
+    //FirebaseDatabase add = FirebaseDatabase.getInstance();
+    //DatabaseReference add1, add2;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_on1);
+        //add1 = add.getReference("addOn");
         L1 = (LinearLayout) findViewById(R.id.promo_screen);
         L2 = (LinearLayout) findViewById(R.id.combo_screen);
         L3 = (LinearLayout) findViewById(R.id.ala_carte_screen);
@@ -89,6 +100,21 @@ public class add_on1 extends AppCompatActivity {
         L3.setVisibility(View.GONE);
         L4.setVisibility(View.GONE);
         L5.setVisibility(View.GONE);
+        /*add1.orderByChild("Promo").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot: dataSnapshot.getChildren()){
+                    String m = childSnapshot.child("name").getValue(String.class);
+                    double p = childSnapshot.child("price").getValue(double.class);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });*/
     }
 
     public void onCombo(View view){
