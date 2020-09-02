@@ -11,11 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="178dp"
         android:contentDescription="@string/todo"
-        app:srcCompat="@drawable/ic_menu_gallery" />
+        app:srcCompat="@drawable/add_on_bg" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:forceDarkAllowed="false"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -74,11 +75,11 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="150dp">
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="260dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -86,11 +87,11 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/promo1" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="50dp"
                             android:layout_weight="1">
 
                             <TextView
@@ -98,7 +99,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Promotion Set 1" />
+                                android:text="Famous Amos Cookies 500g (-30%) RM9.00" />
 
                             <ImageButton
                                 android:id="@+id/promo1_minus"
@@ -136,7 +137,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="260dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -144,7 +145,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/promo2" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -156,7 +157,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Promotion Set 2" />
+                                android:text="Lay's Chips (Buy 2 Free 1) 1 set RM7.50" />
 
                             <ImageButton
                                 android:id="@+id/promo2_minus"
@@ -197,8 +198,8 @@
                     android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <ImageView
@@ -206,7 +207,14 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/promo3" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="230dp"
+                        android:orientation="vertical">
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -218,7 +226,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Promotion Set 3" />
+                                android:text="Pepero Sticks (-20%) RM3.50" />
 
                             <ImageButton
                                 android:id="@+id/promo3_minus"
@@ -253,62 +261,6 @@
                         </RelativeLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="130dp"
-                        android:layout_height="200dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/promo4"
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-                        <RelativeLayout
-                            android:layout_width="120dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentTop="true"
-                                android:layout_centerHorizontal="true"
-                                android:text="Promotion Set 4" />
-
-                            <ImageButton
-                                android:id="@+id/promo4_minus"
-                                style="@style/MinusButtons"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_centerVertical="true"
-                                android:contentDescription="@string/todo"
-                                android:onClick="decreaseNum" />
-
-                            <TextView
-                                android:id="@+id/num_promo4"
-                                style="@style/ScoreText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:text="@string/initial_count"
-                                android:textSize="36sp" />
-
-                            <ImageButton
-                                android:id="@+id/promo4_plus"
-                                style="@style/PlusButtons"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_centerVertical="true"
-                                android:contentDescription="@string/todo"
-                                android:onClick="increaseNum" />
-                        </RelativeLayout>
-                    </LinearLayout>
                 </TableRow>
 
             </TableLayout>
@@ -332,7 +284,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -340,7 +292,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/combo1" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -352,7 +304,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Combo Set 1" />
+                                android:text=" Combo Set 1 RM7.00" />
 
                             <ImageButton
                                 android:id="@+id/combo1_minus"
@@ -390,7 +342,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -398,7 +350,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/combo2" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -410,7 +362,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Combo Set 2" />
+                                android:text="Combo Set 2 RM10.00" />
 
                             <ImageButton
                                 android:id="@+id/combo2_minus"
@@ -452,7 +404,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -460,7 +412,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/combo3" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -472,7 +424,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Combo Set 3" />
+                                android:text="Combo Set 3 RM7.00" />
 
                             <ImageButton
                                 android:id="@+id/combo3_minus"
@@ -507,62 +459,6 @@
                         </RelativeLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="130dp"
-                        android:layout_height="200dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/combo4"
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-                        <RelativeLayout
-                            android:layout_width="120dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentTop="true"
-                                android:layout_centerHorizontal="true"
-                                android:text="Combo Set 4" />
-
-                            <ImageButton
-                                android:id="@+id/combo4_minus"
-                                style="@style/MinusButtons"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_centerVertical="true"
-                                android:contentDescription="@string/todo"
-                                android:onClick="decreaseNum" />
-
-                            <TextView
-                                android:id="@+id/num_combo4"
-                                style="@style/ScoreText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:text="@string/initial_count"
-                                android:textSize="36sp" />
-
-                            <ImageButton
-                                android:id="@+id/combo4_plus"
-                                style="@style/PlusButtons"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_centerVertical="true"
-                                android:contentDescription="@string/todo"
-                                android:onClick="increaseNum" />
-                        </RelativeLayout>
-                    </LinearLayout>
                 </TableRow>
 
             </TableLayout>
@@ -585,7 +481,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -593,7 +489,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/pop1" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -605,7 +501,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="@string/ala_carte_popcorn" />
+                                android:text="Big Popcorn RM8.00" />
 
                             <ImageButton
                                 android:id="@+id/alaCarte1_minus"
@@ -643,7 +539,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -651,11 +547,11 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/pop2" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="0dp"
                             android:layout_weight="1">
 
                             <TextView
@@ -663,7 +559,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="@string/ala_carte_popcorn" />
+                                android:text="Small Popcorn RM5.00" />
 
                             <ImageButton
                                 android:id="@+id/alaCarte2_minus"
@@ -719,7 +615,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="250dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -727,7 +623,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/snacks1" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -739,7 +635,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Snacks Set 1" />
+                                android:text="Hershey's Chocolate Bar RM5.00" />
 
                             <ImageButton
                                 android:id="@+id/snacks1_minus"
@@ -777,7 +673,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="250dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -785,7 +681,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/snacks2" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -797,7 +693,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="Snacks Set 2" />
+                                android:text="Nips Chocolate Peanuts RM3.00" />
 
                             <ImageButton
                                 android:id="@+id/snacks2_minus"
@@ -853,7 +749,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -861,7 +757,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/beverage1" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -873,7 +769,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="beverages 1" />
+                                android:text="Coca Cola (Coke) RM3.50" />
 
                             <ImageButton
                                 android:id="@+id/beverages1_minus"
@@ -911,7 +807,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -919,7 +815,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/beverage2" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -931,7 +827,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="beverages 2" />
+                                android:text="Mountain Dew RM3.50" />
 
                             <ImageButton
                                 android:id="@+id/beverages2_minus"
@@ -973,7 +869,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -981,7 +877,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/beverage3" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -993,7 +889,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="beverages3" />
+                                android:text="Fanta Strawberry RM2.50" />
 
                             <ImageButton
                                 android:id="@+id/beverages3_minus"
@@ -1030,7 +926,7 @@
 
                     <LinearLayout
                         android:layout_width="130dp"
-                        android:layout_height="200dp"
+                        android:layout_height="220dp"
                         android:orientation="vertical">
 
                         <ImageView
@@ -1038,7 +934,7 @@
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:contentDescription="@string/todo"
-                            app:srcCompat="@android:drawable/ic_menu_gallery" />
+                            app:srcCompat="@drawable/beverage4" />
 
                         <RelativeLayout
                             android:layout_width="120dp"
@@ -1050,7 +946,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-                                android:text="beverages4" />
+                                android:text="F N Orange RM2.50" />
 
                             <ImageButton
                                 android:id="@+id/beverages4_minus"

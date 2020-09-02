@@ -19,14 +19,14 @@ import androidx.fragment.app.Fragment;
 
 public class add_on1 extends AppCompatActivity {
 
-    private int numPromo1, numPromo2, numPromo3, numPromo4;
-    private int numCombo1, numCombo2, numCombo3, numCombo4;
+    private int numPromo1, numPromo2, numPromo3;
+    private int numCombo1, numCombo2, numCombo3;
     private int numAlaCarte1, numAlaCarte2;
     private int numSnacks1, numSnacks2;
     private int numBeverages1, numBeverages2, numBeverages3, numBeverages4;
 
-    private TextView textPromo1, textPromo2, textPromo3, textPromo4;
-    private TextView textCombo1, textCombo2, textCombo3, textCombo4;
+    private TextView textPromo1, textPromo2, textPromo3;
+    private TextView textCombo1, textCombo2, textCombo3;
     private TextView textAlaCarte1, textAlaCarte2;
     private TextView textSnacks1, textSnacks2;
     private TextView textBeverages1, textBeverages2, textBeverages3, textBeverages4;
@@ -49,12 +49,10 @@ public class add_on1 extends AppCompatActivity {
         textPromo1 = findViewById(R.id.num_promo1);
         textPromo2 = findViewById(R.id.num_promo2);
         textPromo3 = findViewById(R.id.num_promo3);
-        textPromo4 = findViewById(R.id.num_promo4);
 
         textCombo1 = findViewById(R.id.num_combo1);
         textCombo2 = findViewById(R.id.num_combo2);
         textCombo3 = findViewById(R.id.num_combo3);
-        textCombo4 = findViewById(R.id.num_combo4);
 
         textAlaCarte1 = findViewById(R.id.num_alaCarte1);
         textAlaCarte2 = findViewById(R.id.num_alaCarte2);
@@ -69,12 +67,10 @@ public class add_on1 extends AppCompatActivity {
         textPromo1.setText(String.valueOf(numPromo1));
         textPromo2.setText(String.valueOf(numPromo2));
         textPromo3.setText(String.valueOf(numPromo3));
-        textPromo4.setText(String.valueOf(numPromo4));
 
         textCombo1.setText(String.valueOf(numCombo1));
         textCombo2.setText(String.valueOf(numCombo2));
         textCombo3.setText(String.valueOf(numCombo3));
-        textCombo4.setText(String.valueOf(numCombo4));
 
         textAlaCarte1.setText(String.valueOf(numAlaCarte1));
         textAlaCarte2.setText(String.valueOf(numAlaCarte2));
@@ -143,10 +139,6 @@ public class add_on1 extends AppCompatActivity {
                 numPromo3--;
                 textPromo3.setText(String.valueOf(numPromo3));
                 break;
-            case R.id.promo4_minus:
-                numPromo4--;
-                textPromo4.setText(String.valueOf(numPromo4));
-                break;
         }
 
         switch (viewID) {
@@ -161,10 +153,6 @@ public class add_on1 extends AppCompatActivity {
             case R.id.combo3_minus:
                 numCombo3--;
                 textCombo3.setText(String.valueOf(numCombo3));
-                break;
-            case R.id.combo4_minus:
-                numCombo4--;
-                textCombo4.setText(String.valueOf(numCombo4));
                 break;
         }
 
@@ -223,10 +211,6 @@ public class add_on1 extends AppCompatActivity {
                 numPromo3++;
                 textPromo3.setText(String.valueOf(numPromo3));
                 break;
-            case R.id.promo4_plus:
-                numPromo4++;
-                textPromo4.setText(String.valueOf(numPromo4));
-                break;
         }
 
         switch (viewID) {
@@ -241,10 +225,6 @@ public class add_on1 extends AppCompatActivity {
             case R.id.combo3_plus:
                 numCombo3++;
                 textCombo3.setText(String.valueOf(numCombo3));
-                break;
-            case R.id.combo4_plus:
-                numCombo4++;
-                textCombo4.setText(String.valueOf(numCombo4));
                 break;
         }
 
