@@ -132,7 +132,8 @@ public class SignUp extends AppCompatActivity {
         });
     }
     public void updateUI(FirebaseUser currentUser) {
-        String keyID = mDatabase.push().getKey();
+        //String keyID = mDatabase.push().getKey();
+        String keyID = currentUser.getUid();
         //adding user info to database
         mDatabase.child(keyID).setValue(user);
     }

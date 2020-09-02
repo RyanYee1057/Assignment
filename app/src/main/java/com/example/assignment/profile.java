@@ -22,6 +22,13 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class profile extends AppCompatActivity{
         //implements AdapterView.OnItemSelectedListener {
 
@@ -32,16 +39,23 @@ public class profile extends AppCompatActivity{
     Button Nnn;
     ImageView imageView;
     Button button;
+    FirebaseAuth prof;
+    FirebaseDatabase prof1 = FirebaseDatabase.getInstance();
+    DatabaseReference prof2;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
+        prof = FirebaseAuth.getInstance();
+        userID = prof.getCurrentUser().getUid();    //get id
+        prof2 = prof1.getReference("users").child(userID);
+
         // Get the intent and its data.
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
 
         name = (EditText) findViewById(R.id.enter_name);
         number = (EditText) findViewById(R.id.enter_phone_num);
@@ -72,6 +86,11 @@ public class profile extends AppCompatActivity{
                 }
                 else {
                     Toast.makeText(profile.this, "Done!", Toast.LENGTH_SHORT).show(); //For Test (pop-up)
+                    prof2.child("name").setValue(n);
+                    prof2.child("email").setValue(e);
+                    prof2.child("phone").setValue(m);
+
+                    finish();
                 }
             }
         });
@@ -89,6 +108,24 @@ public class profile extends AppCompatActivity{
                 Intent i = new Intent(Intent.ACTION_PICK,
                         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+        });
+
+        prof2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String name1 = dataSnapshot.child("name").getValue(String.class);
+                String email1 = dataSnapshot.child("email").getValue(String.class);
+                String phone1 = dataSnapshot.child("phone").getValue(String.class);
+                //Toast.makeText(profile.this, email1, Toast.LENGTH_SHORT).show();
+                name.setText(name1);
+                email.setText(email1);
+                number.setText(phone1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
