@@ -100,5 +100,15 @@
     <string name="_11_00am">11.00am</string>
     <!--Product detail from huiru-->
 
+    <!--seat from huiru-->
+    <string name="screen">Screen</string>
+    <string name="confirm">Confirm</string>
+    <string name="book">Available</string>
+    <string name="reserved">Reserved</string>
+    <string name="booked">Booked</string>
+    <string name="selected">Selected</string>
+    <string name="_1">1</string>
+    <!--seat from huiru-->
+
 
 </resources>

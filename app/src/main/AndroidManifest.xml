@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Bloodshot"></activity>
+        <activity android:name=".SeatSelection"></activity>
+        <activity android:name=".Bloodshot" />
         <activity android:name=".Sonic" />
         <activity android:name=".Onward" />
         <activity

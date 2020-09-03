@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -112,6 +113,27 @@ public class MainActivity extends AppCompatActivity {
     public void displayMsg(String message) {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public void click(View sender){
+        Button movie = (Button)sender;
+
+        if(movie.getId() == R.id.bloods)
+        {
+            Intent intent = new Intent (MainActivity.this, Bloodshot.class);
+            startActivity(intent);
+        }
+        else if(movie.getId() == R.id.onw)
+        {
+            Intent intent = new Intent (MainActivity.this, Onward.class);
+            startActivity(intent);
+        }
+
+        else if(movie.getId() == R.id.son)
+        {
+            Intent intent = new Intent (MainActivity.this, Sonic.class);
+            startActivity(intent);
+        }
     }
 
     public class MyAdapter extends ArrayAdapter<String> {
