@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -22,12 +23,18 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.UUID;
 
 public class profile extends AppCompatActivity{
         //implements AdapterView.OnItemSelectedListener {
@@ -89,7 +96,6 @@ public class profile extends AppCompatActivity{
                     prof2.child("name").setValue(n);
                     prof2.child("email").setValue(e);
                     prof2.child("phone").setValue(m);
-
                     finish();
                 }
             }
@@ -108,7 +114,7 @@ public class profile extends AppCompatActivity{
                 Intent i = new Intent(Intent.ACTION_PICK,
                         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
-            }
+                }
         });
 
         prof2.addListenerForSingleValueEvent(new ValueEventListener() {
