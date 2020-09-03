@@ -54,6 +54,7 @@ public class add_on1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_on1);
         //add1 = add.getReference("addOn");
+        userId = userFirebase.getCurrentUser().getUid();
         L1 = (LinearLayout) findViewById(R.id.promo_screen);
         L2 = (LinearLayout) findViewById(R.id.combo_screen);
         L3 = (LinearLayout) findViewById(R.id.ala_carte_screen);
