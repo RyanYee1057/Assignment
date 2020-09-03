@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,8 +43,11 @@ public class add_on1 extends AppCompatActivity {
     LinearLayout L1, L2, L3, L4, L5;
     ImageView a1, a2;
 
-    //FirebaseDatabase add = FirebaseDatabase.getInstance();
-    //DatabaseReference add1, add2;
+    //new
+    String userId;
+    FirebaseAuth userFirebase = FirebaseAuth.getInstance();
+    FirebaseDatabase add = FirebaseDatabase.getInstance();
+    DatabaseReference add1, add2;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -106,14 +110,10 @@ public class add_on1 extends AppCompatActivity {
                 for (DataSnapshot childSnapshot: dataSnapshot.getChildren()){
                     String m = childSnapshot.child("name").getValue(String.class);
                     double p = childSnapshot.child("price").getValue(double.class);
-
                 }
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError databaseError) {            }
         });*/
     }
 
@@ -155,14 +155,20 @@ public class add_on1 extends AppCompatActivity {
         switch (viewID) {
             case R.id.promo1_minus:
                 numPromo1--;
+                if (numPromo1 <0)
+                    numPromo1 = 0;
                 textPromo1.setText(String.valueOf(numPromo1));
                 break;
             case R.id.promo2_minus:
                 numPromo2--;
+                if (numPromo2 <0)
+                    numPromo2 = 0;
                textPromo2.setText(String.valueOf(numPromo2));
                break;
             case R.id.promo3_minus:
                 numPromo3--;
+                if (numPromo3 <0)
+                    numPromo3 = 0;
                 textPromo3.setText(String.valueOf(numPromo3));
                 break;
         }
@@ -170,14 +176,20 @@ public class add_on1 extends AppCompatActivity {
         switch (viewID) {
             case R.id.combo1_minus:
                 numCombo1--;
+                if (numCombo1 <0)
+                    numCombo1 = 0;
                 textCombo1.setText(String.valueOf(numCombo1));
                 break;
             case R.id.combo2_minus:
                 numCombo2--;
+                if (numCombo2 <0)
+                    numCombo2 = 0;
                 textCombo2.setText(String.valueOf(numCombo2));
                 break;
             case R.id.combo3_minus:
                 numCombo3--;
+                if (numCombo3 <0)
+                    numCombo3 = 0;
                 textCombo3.setText(String.valueOf(numCombo3));
                 break;
         }
@@ -185,18 +197,26 @@ public class add_on1 extends AppCompatActivity {
         switch (viewID) {
             case R.id.alaCarte1_minus:
                 numAlaCarte1--;
+                if (numAlaCarte1 <0)
+                    numAlaCarte1 = 0;
                 textAlaCarte1.setText(String.valueOf(numAlaCarte1));
                 break;
             case R.id.alaCarte2_minus:
                 numAlaCarte2--;
+                if (numAlaCarte2 <0)
+                    numAlaCarte2 = 0;
                 textAlaCarte2.setText(String.valueOf(numAlaCarte2));
                 break;
             case R.id.snacks1_minus:
                 numSnacks1--;
+                if (numSnacks1 <0)
+                    numSnacks1 = 0;
                 textSnacks1.setText(String.valueOf(numSnacks1));
                 break;
             case R.id.snacks2_minus:
                 numSnacks2--;
+                if (numSnacks2 <0)
+                    numSnacks2 = 0;
                 textSnacks2.setText(String.valueOf(numSnacks2));
                 break;
         }
@@ -204,18 +224,26 @@ public class add_on1 extends AppCompatActivity {
         switch (viewID) {
             case R.id.beverages1_minus:
                 numBeverages1--;
+                if (numBeverages1 <0)
+                    numBeverages1 = 0;
                 textBeverages1.setText(String.valueOf(numBeverages1));
                 break;
             case R.id.beverages2_minus:
                 numBeverages2--;
+                if (numBeverages2 <0)
+                    numBeverages2 = 0;
                 textBeverages1.setText(String.valueOf(numBeverages2));
                 break;
             case R.id.beverages3_minus:
                 numBeverages3--;
+                if (numBeverages3 <0)
+                    numBeverages3 = 0;
                 textBeverages3.setText(String.valueOf(numBeverages3));
                 break;
             case R.id.beverages4_minus:
                 numBeverages4--;
+                if (numBeverages4 <0)
+                    numBeverages4 = 0;
                 textBeverages4.setText(String.valueOf(numBeverages4));
                 break;
         }
@@ -292,4 +320,137 @@ public class add_on1 extends AppCompatActivity {
                 break;
         }
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        add1 = add.getReference("users").child(userId).child("AddCart");
+        add1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.child("Promo1").exists())
+                    textPromo1.setText(String.valueOf(snapshot.child("Promo1").child("quantity").getValue(int.class)));
+                if (snapshot.child("Promo2").exists())
+                    textPromo2.setText(String.valueOf(snapshot.child("Promo2").child("quantity").getValue(int.class)));
+                if (snapshot.child("Promo3").exists())
+                    textPromo3.setText(String.valueOf(snapshot.child("Promo3").child("quantity").getValue(int.class)));
+                if (snapshot.child("Combo1").exists())
+                    textCombo1.setText(String.valueOf(snapshot.child("Combo1").child("quantity").getValue(int.class)));
+                if (snapshot.child("Combo2").exists())
+                    textCombo2.setText(String.valueOf(snapshot.child("Combo2").child("quantity").getValue(int.class)));
+                if (snapshot.child("Combo3").exists())
+                    textCombo3.setText(String.valueOf(snapshot.child("Combo3").child("quantity").getValue(int.class)));
+                if (snapshot.child("AlaCarte1").exists())
+                    textAlaCarte1.setText(String.valueOf(snapshot.child("AlaCarte1").child("quantity").getValue(int.class)));
+                if (snapshot.child("AlaCarte2").exists())
+                    textAlaCarte2.setText(String.valueOf(snapshot.child("AlaCarte2").child("quantity").getValue(int.class)));
+                if (snapshot.child("Snacks1").exists())
+                    textSnacks1.setText(String.valueOf(snapshot.child("Snacks1").child("quantity").getValue(int.class)));
+                if (snapshot.child("Snacks2").exists())
+                    textSnacks2.setText(String.valueOf(snapshot.child("Snacks2").child("quantity").getValue(int.class)));
+                if (snapshot.child("Beverages1").exists())
+                    textBeverages1.setText(String.valueOf(snapshot.child("Beverages1").child("quantity").getValue(int.class)));
+                if (snapshot.child("Beverages2").exists())
+                    textBeverages2.setText(String.valueOf(snapshot.child("Beverages2").child("quantity").getValue(int.class)));
+                if (snapshot.child("Beverages3").exists())
+                    textBeverages3.setText(String.valueOf(snapshot.child("Beverages3").child("quantity").getValue(int.class)));
+                if (snapshot.child("Beverages4").exists())
+                    textBeverages4.setText(String.valueOf(snapshot.child("Beverages4").child("quantity").getValue(int.class)));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void addCart(View view){
+        add1 = add.getReference("users").child(userId).child("AddCart");
+        if(numPromo1 != 0) {
+            add1.child("Promo1").child("name").setValue("Promo1");
+            add1.child("Promo1").child("quantity").setValue(numPromo1);
+            add1.child("Promo1").child("price").setValue(9.00);
+        }else
+            add1.child("Promo1").removeValue();
+        if(numPromo2 != 0) {
+            add1.child("Promo2").child("name").setValue("Promo2");
+            add1.child("Promo2").child("quantity").setValue(numPromo2);
+            add1.child("Promo2").child("price").setValue(7.50);
+        }else
+            add1.child("Promo2").removeValue();
+        if(numPromo3 != 0) {
+            add1.child("Promo3").child("name").setValue("Promo3");
+            add1.child("Promo3").child("quantity").setValue(numPromo3);
+            add1.child("Promo3").child("price").setValue(3.50);
+        }else
+            add1.child("Promo3").removeValue();
+        if(numCombo1 != 0) {
+            add1.child("Combo1").child("name").setValue("Combo1");
+            add1.child("Combo1").child("quantity").setValue(numCombo1);
+            add1.child("Combo1").child("price").setValue(7.00);
+        }else
+            add1.child("Combo1").removeValue();
+        if(numCombo2 != 0) {
+            add1.child("Combo2").child("name").setValue("Combo2");
+            add1.child("Combo2").child("quantity").setValue(numCombo2);
+            add1.child("Combo2").child("price").setValue(10.00);
+        }else
+            add1.child("Combo2").removeValue();
+        if(numCombo3 != 0) {
+            add1.child("Combo3").child("name").setValue("Combo3");
+            add1.child("Combo3").child("quantity").setValue(numCombo3);
+            add1.child("Combo3").child("price").setValue(7.00);
+        }else
+            add1.child("Combo3").removeValue();
+        if(numAlaCarte1 != 0) {
+            add1.child("AlaCarte1").child("name").setValue("AlaCarte1");
+            add1.child("AlaCarte1").child("quantity").setValue(numAlaCarte1);
+            add1.child("AlaCarte1").child("price").setValue(8.00);
+        }else
+            add1.child("AlaCarte1").removeValue();
+        if(numAlaCarte2 != 0) {
+            add1.child("AlaCarte2").child("name").setValue("AlaCarte2");
+            add1.child("AlaCarte2").child("quantity").setValue(numAlaCarte2);
+            add1.child("AlaCarte2").child("price").setValue(5.00);
+        }else
+            add1.child("AlaCarte2").removeValue();
+        if(numSnacks1 != 0) {
+            add1.child("Snacks1").child("name").setValue("Snacks1");
+            add1.child("Snacks1").child("quantity").setValue(numSnacks1);
+            add1.child("Snacks1").child("price").setValue(5.00);
+        }else
+            add1.child("Snacks1").removeValue();
+        if(numSnacks2 != 0) {
+            add1.child("Snacks2").child("name").setValue("Snacks2");
+            add1.child("Snacks2").child("quantity").setValue(numSnacks2);
+            add1.child("Snacks2").child("price").setValue(3.00);
+        }else
+            add1.child("Snacks2").removeValue();
+        if(numBeverages1 != 0) {
+            add1.child("Beverages1").child("name").setValue("Beverages1");
+            add1.child("Beverages1").child("quantity").setValue(numBeverages1);
+            add1.child("Beverages1").child("price").setValue(3.50);
+        }else
+            add1.child("Beverages1").removeValue();
+        if(numBeverages2 != 0) {
+            add1.child("Beverages2").child("name").setValue("Beverages2");
+            add1.child("Beverages2").child("quantity").setValue(numBeverages2);
+            add1.child("Beverages2").child("price").setValue(3.50);
+        }else
+            add1.child("Beverages2").removeValue();
+        if(numBeverages3 != 0) {
+            add1.child("Beverages3").child("name").setValue("Beverages3");
+            add1.child("Beverages3").child("quantity").setValue(numBeverages3);
+            add1.child("Beverages3").child("price").setValue(2.50);
+        }else
+            add1.child("Beverages3").removeValue();
+        if(numBeverages4 != 0) {
+            add1.child("Beverages4").child("name").setValue("Beverages4");
+            add1.child("Beverages4").child("quantity").setValue(numBeverages4);
+            add1.child("Beverages4").child("price").setValue(2.50);
+        }else
+            add1.child("Beverages4").removeValue();
+        finish();
+    }
+
 }
