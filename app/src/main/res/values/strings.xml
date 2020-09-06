@@ -32,15 +32,14 @@
     <string name="upload">Upload</string>
     <string name="next">Next</string>
 
+    <!--Login / Sign up / Reset Password-->
     <string name="prompt_email">Enter Email</string>
     <string name="prompt_password">Enter Password</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
     <string name="remember_me">Remember Me</string>
     <string name="forgot"><b><u>FORGOT PASSWORD?</u></b></string>
     <string name="login"><b>LOGIN</b></string>
-    <string name="sign_up"><u>Sign Up For ABX</u></string>
+    <string name="sign_up"><b><u>Sign Up For ABX</u></b></string>
     <string name="sign_out">Sign Out</string>
     <string name="signUp">Sign Up</string>
     <string name="phone">Phone</string>
@@ -57,6 +56,7 @@
         Any disputes in the transaction amount discovered
         thereafter will not be entertained.</string>
     <string name="img">1</string>
+
     <string name="promotion">Promotion</string>
     <string name="combo_popcorn">Combo Popcorn</string>
     <string name="ala_carte_popcorn">Ala carte Popcorn</string>

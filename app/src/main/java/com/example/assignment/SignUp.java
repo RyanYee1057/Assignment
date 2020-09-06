@@ -77,13 +77,13 @@ public class SignUp extends AppCompatActivity {
                 }else if (phone.isEmpty()) {
                     p.setError("Please enter your phone");
                     p.requestFocus();
-                } else if (phone.length() < 9) {
+                } else if (phone.length() < 9||phone.length() >13) {
                     p.setError("Invalid phone number");
                     p.requestFocus();
                 } else if (password.isEmpty()) {
                     pwd1.setError("Please enter your password");
                     pwd1.requestFocus();
-                } else if (password.length() < 5) {
+                } else if (password.length() <= 5) {
                     pwd1.setError("Password must be >5 characters");
                     pwd1.requestFocus();
                 } else if (cPassword.isEmpty()) {
@@ -104,7 +104,7 @@ public class SignUp extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
-                                Toast.makeText(SignUp.this, "Sign up Unsuccessful, Please Try Again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp.this, "Sign up Unsuccessful, The Email Address is Already Registered!", Toast.LENGTH_LONG).show();
                                 loadingBar.dismiss();
                             } else {
                                 loadingBar.dismiss();
@@ -132,7 +132,6 @@ public class SignUp extends AppCompatActivity {
         });
     }
     public void updateUI(FirebaseUser currentUser) {
-        //String keyID = mDatabase.push().getKey();
         String keyID = currentUser.getUid();
         //adding user info to database
         mDatabase.child(keyID).setValue(user);
