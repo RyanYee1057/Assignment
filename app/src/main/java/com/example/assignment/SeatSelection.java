@@ -26,7 +26,7 @@ import java.util.List;
 public class SeatSelection extends AppCompatActivity implements View.OnClickListener {
     ViewGroup layoutGroup;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference m1;
+    DatabaseReference m1, addM;
 
     ViewGroup viewLayout;
 
@@ -36,8 +36,11 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
     int count = 0;
     int countSelect;
     int seatSelected = 0;
+    int[] selectId;
+    double moviePrice;
     String seats = "";
-    String text = "You selected ";
+    String text = "", newSeat;
+    String movieName;
     LinearLayout layout;
     LinearLayout layoutSeat;
 
@@ -49,16 +52,11 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_seat_selection);
         String MovieName = getIntent().getStringExtra("name");
         m1 = firebaseDatabase.getReference("Movie").child(MovieName);
-        setContentView(R.layout.activity_main);
-
-        //Intent intent = getIntent();
-        //seats = intent.getStringExtra(Bloodshot.EXTRA_MESSAGE);
 
         viewLayout = findViewById(R.id.layoutSeat);
-
-
 
         layoutSeat = new LinearLayout(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -69,81 +67,11 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
 
         layout = null;
 
-        /*for (int index = 0; index < seats.length(); index++) {
-
-            if (seats.charAt(index) == '/') {
-                layout = new LinearLayout(this);
-                layout.setOrientation(LinearLayout.HORIZONTAL);
-                layoutSeat.addView(layout);
-            } else if (seats.charAt(index) == 'U') {
-                count++;
-                TextView view = new TextView(this);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
-                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
-                view.setLayoutParams(layoutParams);
-                view.setPadding(0, 0, 0, 2 * seatGaping);
-                view.setId(count);
-                view.setGravity(Gravity.CENTER);
-                view.setBackgroundResource(R.drawable.ic_seats_booked);
-                view.setTextColor(Color.WHITE);
-                view.setBackgroundColor(Color.RED);
-                view.setTag(STATUS_BOOKED);
-                view.setText(count + "");
-                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
-                layout.addView(view);
-                seatViewList.add(view);
-                view.setOnClickListener(this);
-            } else if (seats.charAt(index) == 'R') {
-                count++;
-                TextView view = new TextView(this);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
-                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
-                view.setLayoutParams(layoutParams);
-                view.setPadding(0, 0, 0, 2 * seatGaping);
-                view.setId(count);
-                view.setGravity(Gravity.CENTER);
-                view.setBackgroundResource(R.drawable.ic_seats_reserved);
-                view.setBackgroundColor(Color.GRAY);
-                view.setText(count + "");
-                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
-                view.setTextColor(Color.BLACK);
-                view.setTag(STATUS_RESERVED);
-                layout.addView(view);
-                seatViewList.add(view);
-                view.setOnClickListener(this);
-            } else if (seats.charAt(index) == 'A') {
-                count++;
-                TextView view = new TextView(this);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
-                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
-                view.setLayoutParams(layoutParams);
-                view.setPadding(0, 0, 0, 2 * seatGaping);
-                view.setId(count);
-                view.setGravity(Gravity.CENTER);
-                view.setBackgroundResource(R.drawable.ic_seats_book);
-                view.setBackgroundColor(Color.BLUE);
-                view.setText(count + "");
-                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
-                view.setTextColor(Color.WHITE);
-                view.setTag(STATUS_AVAILABLE);
-                layout.addView(view);
-                seatViewList.add(view);
-                view.setOnClickListener(this);
-                seats = seats.substring(0,count)+'U'+seats.substring(count+1);
-            } else if (seats.charAt(index) == '_') {
-                TextView view = new TextView(this);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
-                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
-                view.setLayoutParams(layoutParams);
-                view.setBackgroundColor(Color.TRANSPARENT);
-                view.setText("");
-                layout.addView(view);
-            }
-        }*/
-
         m1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                movieName = dataSnapshot.child("movie_name").getValue(String.class);
+                moviePrice = dataSnapshot.child("movie_price").getValue(double.class);
                 seats = dataSnapshot.child("movie_seat").getValue(String.class);
                 seats = "/" + seats;
                 for (int index = 0; index < seats.length(); index++) {
@@ -206,7 +134,7 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
                         layout.addView(view);
                         seatViewList.add(view);
                         view.setOnClickListener(SeatSelection.this);
-                        seats = seats.substring(0,count)+'U'+seats.substring(count+1);
+                        //seats = seats.substring(0,count)+'U'+seats.substring(count+1);
                     } else if (seats.charAt(index) == '_') {
                         TextView view = new TextView(SeatSelection.this);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
@@ -217,6 +145,7 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
                         layout.addView(view);
                     }
                 }
+                selectId = new int[count];
             }
 
             @Override
@@ -224,6 +153,7 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
 
             }
         });
+
     }
 
 
@@ -231,20 +161,24 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
 
-
         if ((int) view.getTag() == STATUS_AVAILABLE) {
             if (selectedIds.contains(view.getId() + ",")) {
                 selectedIds = selectedIds.replace(+view.getId() + ",", "");
                 view.setBackgroundResource(R.drawable.ic_seats_book);
                 view.setBackgroundColor(Color.BLUE);
+                countSelect = view.getId();
+                selectId[countSelect - 1] = 0;
+                seatSelected-=1;
+                text = text.replace(countSelect+", ", "");
             } else {
                 selectedIds = selectedIds + view.getId() + ",";
                 view.setBackgroundResource(R.drawable.ic_seats_selected);
                 view.setBackgroundColor(Color.GREEN);
                 Toast.makeText(this, "Seat " + view.getId() + " is Selected", Toast.LENGTH_SHORT).show();
                 countSelect = view.getId();
+                selectId[countSelect - 1] = 1;
                 seatSelected+=1;
-                text += "seat " + countSelect + " ";
+                text += countSelect + ", ";
             }
         } else if ((int) view.getTag() == STATUS_BOOKED) {
             Toast.makeText(this, "Seat " + view.getId() + " is Booked", Toast.LENGTH_SHORT).show();
@@ -254,7 +188,47 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
     }
 
     public void confirm(View view) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "seat selected = " + seatSelected, Toast.LENGTH_SHORT).show();
+        if (seatSelected == 0){
+            Toast.makeText(this, "Please Select seat !!", Toast.LENGTH_SHORT).show();
+        }else{
+            newSeat = "";
+            int n = 0;
+            for (int index = 0; index < seats.length(); index++) {
+                switch (seats.charAt(index)) {
+                    case '/':
+                        newSeat += '/';
+                        break;
+                    case 'R':
+                        newSeat += 'R';
+                        n++;
+                        break;
+                    case 'A':
+                        if (selectId[n] != 0) {
+                            newSeat += 'U';
+                        } else {
+                            newSeat += 'A';
+                        }
+                        n++;
+                        break;
+                    case 'U':
+                        newSeat += 'U';
+                        n++;
+                        break;
+                    case '_':
+                        newSeat += '_';
+                        break;
+                }
+            }
+            newSeat = newSeat.substring(1);
+
+            //Toast.makeText(this, newSeat, Toast.LENGTH_SHORT).show();
+            finish();
+            Intent intent = new Intent(view.getContext(), credit_card_payment.class);
+            intent.putExtra("seat", newSeat);
+            intent.putExtra("name", movieName);
+            intent.putExtra("price", moviePrice);
+            startActivity(intent);
+            //m1.child("movie_seat").setValue(newSeat); // take this to payment part;s
+        }
     }
 }

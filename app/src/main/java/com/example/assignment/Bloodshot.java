@@ -70,59 +70,14 @@ public class Bloodshot extends AppCompatActivity {
     }
 
     public void time1(View view) {
-        /*t1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(Bloodshot.this, SeatSelection.class);
-                String movieName = mN.getText().toString();
-                String movieTime = t1.getText().toString();
-                String seat = s1;
-                seat = "/" + seat;
-                movie1 = new Movie(movieName, movieTime, seat);
-                intent.putExtra(EXTRA_MESSAGE, seat);
-                startActivity(intent);
-            }
-        });*/
         Intent intent = new Intent(view.getContext(), SeatSelection.class);
         intent.putExtra("name", "movie1");
         startActivity(intent);
-        /*Log.d(LOG_TAG, "Button clicked!");
-        Intent intent = new Intent(Bloodshot.this, SeatSelection.class);
-        seats = s1;
-        seats = "/" + seats;
-        intent.putExtra(EXTRA_MESSAGE, seats);
-        startActivity(intent);*/
     }
 
     public void time2(View view) {
-        /*t2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(Bloodshot.this, SeatSelection.class);
-                String movieName = mN.getText().toString();
-                String movieTime = t2.getText().toString();
-                String seat = s2;
-                seat = "/" + seat;
-                movie2 = new Movie(movieName, movieTime, seat);
-                intent.putExtra(EXTRA_MESSAGE, seat);
-                startActivity(intent);
-            }
-        });*/
         Intent intent = new Intent(view.getContext(), SeatSelection.class);
         intent.putExtra("name", "movie2");
         startActivity(intent);
-        /*Log.d(LOG_TAG, "Button clicked!");
-        Intent intent = new Intent(Bloodshot.this, SeatSelection.class);
-        seats = s2;
-        seats = "/" + seats;
-        intent.putExtra(EXTRA_MESSAGE, seats);
-        startActivity(intent);*/
     }
-
-    /*public void updateUI(FirebaseUser currentUser) {
-        String keyID = mDatabase.push().getKey();
-        //adding user info to database
-        mDatabase.child(keyID).setValue(movie1);
-        mDatabase.child(keyID).setValue(movie2);
-    }*/
 }

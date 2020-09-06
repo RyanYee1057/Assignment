@@ -20,7 +20,7 @@ public class credit_card_payment extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_credit_card_payment);
         cardnum = findViewById(R.id.bt_card_form_card_number);
         agree=findViewById(R.id.agree_payment);
         cardholderName=findViewById(R.id.cardName_input);
