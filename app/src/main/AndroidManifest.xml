@@ -17,6 +17,7 @@
         <activity android:name=".payment_history"></activity>
         <activity android:name=".payment_success" />
         <activity android:name=".credit_card_payment" />
+        <activity android:name=".SeatSelection"></activity>
         <activity android:name=".Bloodshot" />
         <activity android:name=".Sonic" />
         <activity android:name=".Onward" />

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
             "com.example.android.assignment.extra.MESSAGE";
 
     ListView listView;
-    String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
-    String mDescription[] = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
-    int images[] = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
+    String mTitle[] = {String.valueOf(R.string.bloodshotTitle), String.valueOf(R.string.onwardTitle), String.valueOf(R.string.sonicTitle)};
+    String mDescription[] = {String.valueOf(R.string.bloodshotDescription), String.valueOf(R.string.onwardDescription), String.valueOf(R.string.sonicDescription)};
+    int images[] = {R.drawable.bloodshot, R.drawable.onward,R.drawable.sonic};
 
     //private String Message;
 
@@ -115,6 +116,27 @@ public class MainActivity extends AppCompatActivity {
     public void displayMsg(String message) {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public void click(View sender){
+        Button movie = (Button)sender;
+
+        if(movie.getId() == R.id.bloods)
+        {
+            Intent intent = new Intent (MainActivity.this, Bloodshot.class);
+            startActivity(intent);
+        }
+        else if(movie.getId() == R.id.onw)
+        {
+            Intent intent = new Intent (MainActivity.this, Onward.class);
+            startActivity(intent);
+        }
+
+        else if(movie.getId() == R.id.son)
+        {
+            Intent intent = new Intent (MainActivity.this, Sonic.class);
+            startActivity(intent);
+        }
     }
 
     public class MyAdapter extends ArrayAdapter<String> {

@@ -60,6 +60,14 @@
                 android:onClick="onBeverages"
                 android:text="@string/beverages" />
 
+            <Button
+                android:id="@+id/addToCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:onClick="addCart"
+                android:text="ADD" />
+
         </LinearLayout>
 
         <LinearLayout
