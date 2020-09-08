@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
             "com.example.android.assignment.extra.MESSAGE";
 
     ListView listView;
-    String mTitle[] = {"Movie 1", "Movie 2", "Movie 3"};
-    String mDescription[] = {"Movie 1 desc", "Movie 2 desc", "Movie 3 desc"};
-    int images[] = {R.drawable.ic_menu_camera, R.drawable.ic_menu_gallery,R.drawable.ic_menu_share};
+    String mTitle[] = {String.valueOf(R.string.bloodshotTitle), String.valueOf(R.string.onwardTitle), String.valueOf(R.string.sonicTitle)};
+    String mDescription[] = {String.valueOf(R.string.bloodshotDescription), String.valueOf(R.string.onwardDescription), String.valueOf(R.string.sonicDescription)};
+    int images[] = {R.drawable.bloodshot, R.drawable.onward,R.drawable.sonic};
 
     //private String Message;
 
