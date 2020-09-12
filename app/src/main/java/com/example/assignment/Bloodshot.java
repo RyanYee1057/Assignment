@@ -70,14 +70,20 @@ public class Bloodshot extends AppCompatActivity {
     }
 
     public void time1(View view) {
+        finish();
         Intent intent = new Intent(view.getContext(), SeatSelection.class);
-        intent.putExtra("name", "movie1");
+        intent.putExtra("name", "Bloodshot");
+        intent.putExtra("mn", "movie1");
+        intent.putExtra("time", "4.30pm");
         startActivity(intent);
     }
 
     public void time2(View view) {
+        finish();
         Intent intent = new Intent(view.getContext(), SeatSelection.class);
-        intent.putExtra("name", "movie2");
+        intent.putExtra("name", "Bloodshot");
+        intent.putExtra("mn", "movie2");
+        intent.putExtra("time", "7.00pm");
         startActivity(intent);
     }
 }

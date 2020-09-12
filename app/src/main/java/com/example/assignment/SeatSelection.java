@@ -39,8 +39,9 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
     int[] selectId;
     double moviePrice;
     String seats = "";
-    String text = "", newSeat;
+    String text = "", newSeat, noSeat;
     String movieName;
+    String MovieName, MovieTime;
     LinearLayout layout;
     LinearLayout layoutSeat;
 
@@ -53,7 +54,9 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_selection);
-        String MovieName = getIntent().getStringExtra("name");
+        movieName = getIntent().getStringExtra("name");
+        MovieName = getIntent().getStringExtra("mn");
+        MovieTime = getIntent().getStringExtra("time");
         m1 = firebaseDatabase.getReference("Movie").child(MovieName);
 
         viewLayout = findViewById(R.id.layoutSeat);
@@ -219,14 +222,24 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
                         break;
                 }
             }
+            noSeat = "";
+            for (int index = 0; index < count; index++)
+            {
+                noSeat += String.valueOf((selectId[index]));
+            }
             newSeat = newSeat.substring(1);
 
             //Toast.makeText(this, newSeat, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, noSeat, Toast.LENGTH_SHORT).show();
             finish();
             Intent intent = new Intent(view.getContext(), credit_card_payment.class);
             intent.putExtra("seat", newSeat);
-            intent.putExtra("name", movieName);
+            intent.putExtra("seatNo", noSeat);
+            intent.putExtra("name", movieName); // Movie true name
             intent.putExtra("price", moviePrice);
+            intent.putExtra("count", count);
+            intent.putExtra("mn", MovieName); // movie1/movie2
+            intent.putExtra("time", MovieTime);
             startActivity(intent);
             //m1.child("movie_seat").setValue(newSeat); // take this to payment part;s
         }
