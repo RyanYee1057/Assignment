@@ -151,6 +151,20 @@ public class add_on1 extends AppCompatActivity {
     }
 
     public void decreaseNum(View view) {
+        numPromo1 = Integer.parseInt(textPromo1.getText().toString());
+        numPromo2 = Integer.parseInt(textPromo2.getText().toString());
+        numPromo3 = Integer.parseInt(textPromo3.getText().toString());
+        numCombo1 = Integer.parseInt(textCombo1.getText().toString());
+        numCombo2 = Integer.parseInt(textCombo2.getText().toString());
+        numCombo3 = Integer.parseInt(textCombo3.getText().toString());
+        numAlaCarte1 = Integer.parseInt(textAlaCarte1.getText().toString());
+        numAlaCarte2 = Integer.parseInt(textAlaCarte2.getText().toString());
+        numSnacks1 = Integer.parseInt(textSnacks1.getText().toString());
+        numSnacks2 = Integer.parseInt(textSnacks2.getText().toString());
+        numBeverages1 = Integer.parseInt(textBeverages1.getText().toString());
+        numBeverages2 = Integer.parseInt(textBeverages2.getText().toString());
+        numBeverages3 = Integer.parseInt(textBeverages3.getText().toString());
+        numBeverages4 = Integer.parseInt(textBeverages4.getText().toString());
         // Get the ID of the button that was clicked.
         int viewID = view.getId();
         switch (viewID) {
@@ -251,6 +265,20 @@ public class add_on1 extends AppCompatActivity {
     }
 
     public void increaseNum(View view) {
+        numPromo1 = Integer.parseInt(textPromo1.getText().toString());
+        numPromo2 = Integer.parseInt(textPromo2.getText().toString());
+        numPromo3 = Integer.parseInt(textPromo3.getText().toString());
+        numCombo1 = Integer.parseInt(textCombo1.getText().toString());
+        numCombo2 = Integer.parseInt(textCombo2.getText().toString());
+        numCombo3 = Integer.parseInt(textCombo3.getText().toString());
+        numAlaCarte1 = Integer.parseInt(textAlaCarte1.getText().toString());
+        numAlaCarte2 = Integer.parseInt(textAlaCarte2.getText().toString());
+        numSnacks1 = Integer.parseInt(textSnacks1.getText().toString());
+        numSnacks2 = Integer.parseInt(textSnacks2.getText().toString());
+        numBeverages1 = Integer.parseInt(textBeverages1.getText().toString());
+        numBeverages2 = Integer.parseInt(textBeverages2.getText().toString());
+        numBeverages3 = Integer.parseInt(textBeverages3.getText().toString());
+        numBeverages4 = Integer.parseInt(textBeverages4.getText().toString());
         // Get the ID of the button that was clicked.
         int viewID = view.getId();
         switch (viewID) {
@@ -309,7 +337,7 @@ public class add_on1 extends AppCompatActivity {
                 break;
             case R.id.beverages2_plus:
                 numBeverages2++;
-                textBeverages1.setText(String.valueOf(numBeverages2));
+                textBeverages2.setText(String.valueOf(numBeverages2));
                 break;
             case R.id.beverages3_plus:
                 numBeverages3++;
@@ -367,6 +395,20 @@ public class add_on1 extends AppCompatActivity {
 
     public void addCart(View view){
         add1 = add.getReference("users").child(userId).child("AddCart");
+        numPromo1 = Integer.parseInt(textPromo1.getText().toString());
+        numPromo2 = Integer.parseInt(textPromo2.getText().toString());
+        numPromo3 = Integer.parseInt(textPromo3.getText().toString());
+        numCombo1 = Integer.parseInt(textCombo1.getText().toString());
+        numCombo2 = Integer.parseInt(textCombo2.getText().toString());
+        numCombo3 = Integer.parseInt(textCombo3.getText().toString());
+        numAlaCarte1 = Integer.parseInt(textAlaCarte1.getText().toString());
+        numAlaCarte2 = Integer.parseInt(textAlaCarte2.getText().toString());
+        numSnacks1 = Integer.parseInt(textSnacks1.getText().toString());
+        numSnacks2 = Integer.parseInt(textSnacks2.getText().toString());
+        numBeverages1 = Integer.parseInt(textBeverages1.getText().toString());
+        numBeverages2 = Integer.parseInt(textBeverages2.getText().toString());
+        numBeverages3 = Integer.parseInt(textBeverages3.getText().toString());
+        numBeverages4 = Integer.parseInt(textBeverages4.getText().toString());
         if(numPromo1 != 0) {
             add1.child("Promo1").child("name").setValue("Promo1");
             add1.child("Promo1").child("quantity").setValue(numPromo1);

@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,"Already in movie activity",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_purchase_history:
-                        Toast.makeText(MainActivity.this,"Purchase_history",Toast.LENGTH_SHORT).show();
-                        //Intent puchaseHistoryIntent = new Intent(MainActivity.this, purchaseHistory.class);
-                        //startActivity(puchaseHistoryIntent);
+                        //Toast.makeText(MainActivity.this,"Purchase_history",Toast.LENGTH_SHORT).show();
+                        Intent puchaseHistoryIntent = new Intent(MainActivity.this, payment_history.class);
+                        startActivity(puchaseHistoryIntent);
                         break;
                 }
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);

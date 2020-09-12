@@ -84,7 +84,6 @@ public class credit_card_payment extends Activity {
             }
         }
         movieTotolPrice = 0;
-        Toast.makeText(this, seatPlace, Toast.LENGTH_SHORT).show();
         for (int index = 0; index<count;index++)
         {
             if (selectId[index] == 1) {
@@ -188,17 +187,18 @@ public class credit_card_payment extends Activity {
 
                 }
             });
-            history.child(dd).child(historyID).child("Movie").child(mn).child("movie_name").setValue(movieName);
-            history.child(dd).child(historyID).child("Movie").child(mn).child("movie_time").setValue(time);
-            history.child(dd).child(historyID).child("Movie").child(mn).child("movie_price").setValue(moviePrice);
-            history.child(dd).child(historyID).child("Movie").child(mn).child("seat_place").setValue(seatPlace);
+            history.child(dd).child(historyID).child("Movie").child("movie_name").setValue(movieName);
+            history.child(dd).child(historyID).child("Movie").child("movie_time").setValue(time);
+            history.child(dd).child(historyID).child("Movie").child("movie_price").setValue(moviePrice);
+            history.child(dd).child(historyID).child("Movie").child("seat_place").setValue(seatPlace);
             history.child(dd).child(historyID).child("TotalPrice").setValue(ttp);
 
-            add2.child(historyID).child("Movie").child(mn).child("movie_name").setValue(movieName);
-            add2.child(historyID).child("Movie").child(mn).child("movie_time").setValue(time);
-            add2.child(historyID).child("Movie").child(mn).child("movie_price").setValue(moviePrice);
-            add2.child(historyID).child("Movie").child(mn).child("seat").setValue(noSeat);
-            add2.child(historyID).child("Movie").child(mn).child("seatCount").setValue(count);
+            add2.child(historyID).child("history_id").setValue(historyID);
+            add2.child(historyID).child("Movie").child("movie_name").setValue(movieName);
+            add2.child(historyID).child("Movie").child("movie_time").setValue(time);
+            add2.child(historyID).child("Movie").child("movie_price").setValue(moviePrice);
+            add2.child(historyID).child("Movie").child("seat").setValue(noSeat);
+            add2.child(historyID).child("Movie").child("seatCount").setValue(count);
             takeid.setValue(hid);
             m.child("movie_seat").setValue(seat);
             Log.d(LOG_TAG, "Button clicked!");
