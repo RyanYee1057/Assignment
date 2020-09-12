@@ -30,15 +30,22 @@ public class credit_card_payment extends Activity {
     CardEditText cardnum;
     CheckBox agree;
     EditText cardholderName;
-    String userId, detailText = "", dd, historyID, cardNum;
-    int hid;
+    String userId, detailText, dd, historyID, cardNum;
+    String seat, noSeat, movieName, mn, seatPlace, time;
+    double moviePrice, movieTotolPrice, ttp;
+    int hid, count;
+    int[] selectId;
     FirebaseAuth userFirebase = FirebaseAuth.getInstance();
     FirebaseDatabase add = FirebaseDatabase.getInstance();
-    DatabaseReference add1, add2, takeid, history;
+    DatabaseReference add1, add2, takeid, history, m;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_card_payment);
+        Date d = new Date();
+        CharSequence s  = DateFormat.format("yyyy-MM-dd", d.getTime());
+        dd = s.toString();
+        detailText = "";
         Detail = (TextView)findViewById(R.id.detail);
         totalPrice = (TextView)findViewById(R.id.tolPr);
         cardnum = findViewById(R.id.bt_card_form_card_number);
@@ -48,6 +55,45 @@ public class credit_card_payment extends Activity {
         add1 = add.getReference("users").child(userId);
         takeid = add.getReference("takeID").child("historyID");
         history = add.getReference("AllHistory");
+        // take previous
+        seat = getIntent().getStringExtra("seat");
+        noSeat = getIntent().getStringExtra("seatNo");
+        movieName = getIntent().getStringExtra("name");
+        moviePrice = getIntent().getDoubleExtra("price", 0);
+        count = getIntent().getIntExtra("count", 0);
+        mn = getIntent().getStringExtra("mn");
+        time = getIntent().getStringExtra("time");
+        m = add.getReference("Movie").child(mn);
+        selectId = new int[count];
+        detailText+= "Movie\n";
+        detailText+= movieName + " ---- " + String.format("RM%.2f",moviePrice) + " ---- " + time +"\n";
+        seatPlace = "";
+        boolean n = false;
+        for (int index = 0; index<count;index++)
+        {
+            if (noSeat.charAt(index)=='1')
+            {
+                selectId[index] = 1;
+                if (n == false){
+                    seatPlace += String.valueOf(index + 1);
+                    n = true;
+                }
+                else {
+                    seatPlace += ", " + String.valueOf(index + 1);
+                }
+            }
+        }
+        movieTotolPrice = 0;
+        Toast.makeText(this, seatPlace, Toast.LENGTH_SHORT).show();
+        for (int index = 0; index<count;index++)
+        {
+            if (selectId[index] == 1) {
+                detailText += "Seat " + String.valueOf(index + 1) + "\n";
+                movieTotolPrice += moviePrice;
+            }
+        }
+        detailText += "Movie Total Price : " + String.format("RM%.2f\n",movieTotolPrice);
+
         takeid.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -60,10 +106,12 @@ public class credit_card_payment extends Activity {
 
             }
         });
+
         add1.child("AddCart").orderByChild("name").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                double ttp = 0;
+                ttp = 0;
+                detailText+= "\nAdd On\n";
                 for (DataSnapshot childSnapshot : snapshot.getChildren()){
                     if(childSnapshot.child("quantity").exists()&&childSnapshot.child("price").exists()) {
                         String n = childSnapshot.child("name").getValue(String.class);
@@ -71,10 +119,11 @@ public class credit_card_payment extends Activity {
                         double p = childSnapshot.child("price").getValue(double.class);
                         double tp = q * p;
                         detailText += n + String.format(" %d (RM%.2f) : (Total: RM%.2f)\n", q, p, tp);
-                        Detail.setText(detailText);
                         ttp += tp;
+                        Detail.setText(detailText);
                     }
                 }
+                ttp += movieTotolPrice;
                 totalPrice.setText(String.format("RM%.2f", ttp));
             }
 
@@ -83,6 +132,7 @@ public class credit_card_payment extends Activity {
 
             }
         });
+        Detail.setText(detailText);
     }
     public void launchSecondActivity(View view) {
         cardNum = String.valueOf(cardnum.getText());
@@ -111,21 +161,16 @@ public class credit_card_payment extends Activity {
         }
         else
         {
-            Date d = new Date();
-            CharSequence s  = DateFormat.format("yyyy-MM-dd", d.getTime());
-            dd = s.toString();
+            historyID = String.format("H%d",hid);
             add2 = add1.child("history");
             add1.child("AddCart").orderByChild("name").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    double ttp = 0;
-                    historyID = String.format("H%d",hid);
                     for (DataSnapshot childSnapshot : snapshot.getChildren()){
                         if(childSnapshot.child("quantity").exists()&&childSnapshot.child("price").exists()) {
                             String n = childSnapshot.child("name").getValue(String.class);
                             int q = childSnapshot.child("quantity").getValue(int.class);
                             double p = childSnapshot.child("price").getValue(double.class);
-                            double tp = q * p;
                             history.child(dd).child(historyID).child("AddOn").child(n).child("name").setValue(n);
                             history.child(dd).child(historyID).child("AddOn").child(n).child("quantity").setValue(q);
                             history.child(dd).child(historyID).child("AddOn").child(n).child("price").setValue(p);
@@ -136,7 +181,6 @@ public class credit_card_payment extends Activity {
                             add2.child(historyID).child("AddOn").child(n).child("price").setValue(p);
                         }
                     }
-                    totalPrice.setText(String.format("RM%.2f", ttp));
                 }
 
                 @Override
@@ -144,7 +188,19 @@ public class credit_card_payment extends Activity {
 
                 }
             });
+            history.child(dd).child(historyID).child("Movie").child(mn).child("movie_name").setValue(movieName);
+            history.child(dd).child(historyID).child("Movie").child(mn).child("movie_time").setValue(time);
+            history.child(dd).child(historyID).child("Movie").child(mn).child("movie_price").setValue(moviePrice);
+            history.child(dd).child(historyID).child("Movie").child(mn).child("seat_place").setValue(seatPlace);
+            history.child(dd).child(historyID).child("TotalPrice").setValue(ttp);
+
+            add2.child(historyID).child("Movie").child(mn).child("movie_name").setValue(movieName);
+            add2.child(historyID).child("Movie").child(mn).child("movie_time").setValue(time);
+            add2.child(historyID).child("Movie").child(mn).child("movie_price").setValue(moviePrice);
+            add2.child(historyID).child("Movie").child(mn).child("seat").setValue(noSeat);
+            add2.child(historyID).child("Movie").child(mn).child("seatCount").setValue(count);
             takeid.setValue(hid);
+            m.child("movie_seat").setValue(seat);
             Log.d(LOG_TAG, "Button clicked!");
             finish();
             Intent intent = new Intent(this, payment_success.class);
