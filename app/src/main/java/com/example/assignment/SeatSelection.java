@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -43,7 +44,7 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
     String seats = "";
     String text = "", newSeat, noSeat;
     String movieName;
-    String MovieName, MovieTime;
+    String MovieName, MovieTime, dd;
     LinearLayout layout;
     LinearLayout layoutSeat;
 
@@ -59,7 +60,8 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
         movieName = getIntent().getStringExtra("name");
         MovieName = getIntent().getStringExtra("mn");
         MovieTime = getIntent().getStringExtra("time");
-        m1 = firebaseDatabase.getReference("Movie").child(MovieName);
+        dd = getIntent().getStringExtra("date");
+        m1 = firebaseDatabase.getReference("MovieOnDate").child(dd).child(MovieName);
 
         viewLayout = findViewById(R.id.layoutSeat);
 
@@ -242,6 +244,7 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
             intent.putExtra("count", count);
             intent.putExtra("mn", MovieName); // movie1/movie2
             intent.putExtra("time", MovieTime);
+            intent.putExtra("date", dd);
             startActivity(intent);
             //m1.child("movie_seat").setValue(newSeat); // take this to payment part;s
         }

@@ -3,6 +3,7 @@ package com.example.assignment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +26,13 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
             "com.example.android.assignment.extra.MESSAGE";
 
     ListView listView;
+    String dd, dd2;
+    FirebaseDatabase fd = FirebaseDatabase.getInstance();
+    DatabaseReference dr1,dr2, drM;
     String mTitle[] = {"BloodShot", "Onward", "Sonic The Hedgedog"};
     String mDescription[] = {"P13 - Action, Adventure - 107 Minutes - English", "U - Adventure, Fantasy - 102 Minutes - English", "P13 - Action, Adventure - 98 Minutes - English"};
     int images[] = {R.drawable.bloodshot, R.drawable.onward,R.drawable.sonic};
@@ -151,5 +162,91 @@ public class MainActivity extends AppCompatActivity {
             myDescription.setText(rDescription[position]);
             return row;
         }
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Date d = new Date();
+        CharSequence s  = DateFormat.format("yyyy-MM-dd", d.getTime());
+        CharSequence s2  = DateFormat.format("yyyy-MM-dd", d.getTime() + 86400000); // 1 day have 86400000 milli second
+        dd = s.toString();
+        dd2 = s2.toString();
+        dr1 = fd.getReference("MovieOnDate").child(dd);
+        drM = fd.getReference("Movie");
+        dr1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+
+                }
+                else{
+                    drM.orderByChild("movie_id").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            for (DataSnapshot childSnapshot : snapshot.getChildren())
+                            {
+                                String mi = childSnapshot.child("movie_id").getValue(String.class);
+                                String mn = childSnapshot.child("movie_name").getValue(String.class);
+                                String ms = childSnapshot.child("movie_seat").getValue(String.class);
+                                double mp = childSnapshot.child("movie_price").getValue(double.class);
+                                dr1.getRef().child(mi).child("movie_id").setValue(mi);
+                                dr1.getRef().child(mi).child("movie_name").setValue(mn);
+                                dr1.getRef().child(mi).child("movie_seat").setValue(ms);
+                                dr1.getRef().child(mi).child("movie_price").setValue(mp);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        dr2 = fd.getReference("MovieOnDate").child(dd2);
+        dr2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+
+                }
+                else{
+                    drM.orderByChild("movie_id").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            for (DataSnapshot childSnapshot : snapshot.getChildren())
+                            {
+                                String mi = childSnapshot.child("movie_id").getValue(String.class);
+                                String mn = childSnapshot.child("movie_name").getValue(String.class);
+                                String ms = childSnapshot.child("movie_seat").getValue(String.class);
+                                double mp = childSnapshot.child("movie_price").getValue(double.class);
+                                dr2.getRef().child(mi).child("movie_id").setValue(mi);
+                                dr2.getRef().child(mi).child("movie_name").setValue(mn);
+                                dr2.getRef().child(mi).child("movie_seat").setValue(ms);
+                                dr2.getRef().child(mi).child("movie_price").setValue(mp);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

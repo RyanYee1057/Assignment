@@ -42,9 +42,6 @@ public class credit_card_payment extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_card_payment);
-        Date d = new Date();
-        CharSequence s  = DateFormat.format("yyyy-MM-dd", d.getTime());
-        dd = s.toString();
         detailText = "";
         Detail = (TextView)findViewById(R.id.detail);
         totalPrice = (TextView)findViewById(R.id.tolPr);
@@ -63,10 +60,14 @@ public class credit_card_payment extends Activity {
         count = getIntent().getIntExtra("count", 0);
         mn = getIntent().getStringExtra("mn");
         time = getIntent().getStringExtra("time");
-        m = add.getReference("Movie").child(mn);
+        dd = getIntent().getStringExtra("date");
+
+
+        m = add.getReference("MovieOnDate").child(dd).child(mn);
         selectId = new int[count];
         detailText+= "Movie\n";
         detailText+= movieName + " ---- " + String.format("RM%.2f",moviePrice) + " ---- " + time +"\n";
+        detailText+= "Date : " + dd + "\n";
         seatPlace = "";
         boolean n = false;
         for (int index = 0; index<count;index++)
@@ -189,6 +190,7 @@ public class credit_card_payment extends Activity {
             });
             history.child(dd).child(historyID).child("Movie").child("movie_name").setValue(movieName);
             history.child(dd).child(historyID).child("Movie").child("movie_time").setValue(time);
+            history.child(dd).child(historyID).child("Movie").child("movie_Date").setValue(dd);
             history.child(dd).child(historyID).child("Movie").child("movie_price").setValue(moviePrice);
             history.child(dd).child(historyID).child("Movie").child("seat_place").setValue(seatPlace);
             history.child(dd).child(historyID).child("TotalPrice").setValue(ttp);
@@ -196,10 +198,12 @@ public class credit_card_payment extends Activity {
             add2.child(historyID).child("history_id").setValue(historyID);
             add2.child(historyID).child("Movie").child("movie_name").setValue(movieName);
             add2.child(historyID).child("Movie").child("movie_time").setValue(time);
+            add2.child(historyID).child("Movie").child("movie_Date").setValue(dd);
             add2.child(historyID).child("Movie").child("movie_price").setValue(moviePrice);
             add2.child(historyID).child("Movie").child("seat").setValue(noSeat);
             add2.child(historyID).child("Movie").child("seatCount").setValue(count);
             takeid.setValue(hid);
+            // seat the new seat
             m.child("movie_seat").setValue(seat);
             Log.d(LOG_TAG, "Button clicked!");
             finish();
