@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-                        Toast.makeText(MainActivity.this,"Profile",Toast.LENGTH_SHORT).show();
                         Intent profileIntent = new Intent(MainActivity.this, profile.class);
                         startActivity(profileIntent);
                         break;
@@ -73,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,"Already in movie activity",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_purchase_history:
-                        //Toast.makeText(MainActivity.this,"Purchase_history",Toast.LENGTH_SHORT).show();
                         Intent puchaseHistoryIntent = new Intent(MainActivity.this, payment_history.class);
                         startActivity(puchaseHistoryIntent);
                         break;

@@ -2,11 +2,17 @@ package com.example.assignment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,7 +33,7 @@ public class payment_history extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_history);
+        setContentView(R.layout.nav_activity_payment_history);
 
         show = (TextView)findViewById(R.id.show);
         userId = userFirebase.getCurrentUser().getUid();
@@ -77,6 +83,38 @@ public class payment_history extends AppCompatActivity {
 
             }
         });
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_profile:
+                        Intent profileIntent = new Intent(payment_history.this, profile.class);
+                        startActivity(profileIntent);
+                        break;
+                    case R.id.nav_movies:
+                        Intent movieIntent = new Intent(payment_history.this, MainActivity.class);
+                        startActivity(movieIntent);
+                        break;
+                    case R.id.nav_purchase_history:
+                        Toast.makeText(payment_history.this,"Already in Payment History",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+
+        View navIcon = findViewById(R.id.toolbar_icon);
+        navIcon.setOnClickListener((new View.OnClickListener(){
+            @Override
+            public  void onClick(View v){
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        }));
 
     }
 }

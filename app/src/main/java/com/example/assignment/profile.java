@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -15,6 +17,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,7 +58,7 @@ public class profile extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile);
+        setContentView(R.layout.nav_activity_profile);
 
         prof = FirebaseAuth.getInstance();
         userID = prof.getCurrentUser().getUid();    //get id
@@ -134,6 +138,38 @@ public class profile extends AppCompatActivity{
 
             }
         });
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_profile:
+                        Toast.makeText(profile.this,"Already in Profile",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_movies:
+                        Intent movieIntent = new Intent(profile.this, MainActivity.class);
+                        startActivity(movieIntent);
+                        break;
+                    case R.id.nav_purchase_history:
+                        Intent puchaseHistoryIntent = new Intent(profile.this, payment_history.class);
+                        startActivity(puchaseHistoryIntent);
+                        break;
+                }
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+
+        View navIcon = findViewById(R.id.toolbar_icon);
+        navIcon.setOnClickListener((new View.OnClickListener(){
+            @Override
+            public  void onClick(View v){
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        }));
 
     }
 
