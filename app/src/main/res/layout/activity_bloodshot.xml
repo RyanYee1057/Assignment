@@ -147,25 +147,74 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/bsdirector" />
 
-            <Button
-                android:id="@+id/time1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="time1"
-                android:text="@string/_4_30pm"
-                android:layout_marginStart="8dp"
-                tools:layout_editor_absoluteX="195dp"
-                tools:layout_editor_absoluteY="373dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/time2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:onClick="time2"
-                android:text="@string/_7_00pm"
-                tools:layout_editor_absoluteX="195dp"
-                tools:layout_editor_absoluteY="373dp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/t1"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/time1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:onClick="time1"
+                        android:text="@string/_4_30pm"
+                        tools:layout_editor_absoluteX="195dp"
+                        tools:layout_editor_absoluteY="373dp" />
+
+                    <Button
+                        android:id="@+id/time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:onClick="time2"
+                        android:text="@string/_7_00pm"
+                        tools:layout_editor_absoluteX="195dp"
+                        tools:layout_editor_absoluteY="373dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/t12"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/time12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="time12"
+                        android:text="@string/_4_30pm" />
+
+                    <Button
+                        android:id="@+id/time22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="time22"
+                        android:text="@string/_7_00pm" />
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
