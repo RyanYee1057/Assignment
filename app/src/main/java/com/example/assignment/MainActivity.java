@@ -86,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent puchaseHistoryIntent = new Intent(MainActivity.this, payment_history.class);
                         startActivity(puchaseHistoryIntent);
                         break;
+                    case R.id.sign_out:
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent (MainActivity.this, Login.class);
+                        startActivity(intent);
                 }
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.closeDrawer(GravityCompat.START);
@@ -159,18 +163,6 @@ public class MainActivity extends AppCompatActivity {
             return row;
         }
     }
-
-    public void onAdd(View view){
-        Intent intent = new Intent (MainActivity.this, add_on1.class);
-        startActivity(intent);
-    }
-    public void test(View view){
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent (MainActivity.this, Login.class);
-        startActivity(intent);
-
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
