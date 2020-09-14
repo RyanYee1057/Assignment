@@ -155,6 +155,10 @@ public class profile extends AppCompatActivity{
                         Intent puchaseHistoryIntent = new Intent(profile.this, payment_history.class);
                         startActivity(puchaseHistoryIntent);
                         break;
+                    case R.id.sign_out:
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent (profile.this, Login.class);
+                        startActivity(intent);
                 }
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.closeDrawer(GravityCompat.START);
