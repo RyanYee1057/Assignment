@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
             "com.example.android.assignment.extra.MESSAGE";
 
     ListView listView;
-    String mTitle[] = {String.valueOf(R.string.bloodshotTitle), String.valueOf(R.string.onwardTitle), String.valueOf(R.string.sonicTitle)};
-    String mDescription[] = {String.valueOf(R.string.bloodshotDescription), String.valueOf(R.string.onwardDescription), String.valueOf(R.string.sonicDescription)};
+    String mTitle[] = {"BloodShot", "Onward", "Sonic The Hedgedog"};
+    String mDescription[] = {"P13 - Action, Adventure - 107 Minutes - English", "U - Adventure, Fantasy - 102 Minutes - English", "P13 - Action, Adventure - 98 Minutes - English"};
     int images[] = {R.drawable.bloodshot, R.drawable.onward,R.drawable.sonic};
 
     //private String Message;
@@ -101,13 +101,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 0){
-                    Toast.makeText(MainActivity.this, "Movie 1 clicked",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent (MainActivity.this, Bloodshot.class);
+                    startActivity(intent);
                 }
-                if(position == 0){
-                    Toast.makeText(MainActivity.this, "Movie 2 clicked",Toast.LENGTH_SHORT).show();
+                if(position == 1){
+                    Intent intent = new Intent (MainActivity.this, Onward.class);
+                    startActivity(intent);
                 }
-                if(position == 0){
-                    Toast.makeText(MainActivity.this, "Movie 3 clicked",Toast.LENGTH_SHORT).show();
+                if(position == 2){
+                    Intent intent = new Intent (MainActivity.this, Sonic.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -116,27 +119,6 @@ public class MainActivity extends AppCompatActivity {
     public void displayMsg(String message) {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
-    }
-
-    public void click(View sender){
-        Button movie = (Button)sender;
-
-        if(movie.getId() == R.id.bloods)
-        {
-            Intent intent = new Intent (MainActivity.this, Bloodshot.class);
-            startActivity(intent);
-        }
-        else if(movie.getId() == R.id.onw)
-        {
-            Intent intent = new Intent (MainActivity.this, Onward.class);
-            startActivity(intent);
-        }
-
-        else if(movie.getId() == R.id.son)
-        {
-            Intent intent = new Intent (MainActivity.this, Sonic.class);
-            startActivity(intent);
-        }
     }
 
     public class MyAdapter extends ArrayAdapter<String> {
