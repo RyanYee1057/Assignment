@@ -494,7 +494,7 @@ public class add_on1 extends AppCompatActivity {
             add1.child("Beverages4").child("price").setValue(2.50);
         }else
             add1.child("Beverages4").removeValue();
-        //finish();
+        finish();
 
         Intent nextIntent = new Intent(view.getContext(), credit_card_payment.class);
         startActivity(nextIntent);
