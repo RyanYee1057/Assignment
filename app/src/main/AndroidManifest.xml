@@ -45,7 +45,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ForgotPwd"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".add_on1" />
+        <activity android:name=".add_on1"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
