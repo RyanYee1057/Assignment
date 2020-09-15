@@ -25,7 +25,7 @@ public class payment_history extends AppCompatActivity {
     FirebaseAuth userFirebase = FirebaseAuth.getInstance();
     FirebaseDatabase df = FirebaseDatabase.getInstance();
     DatabaseReference his;
-    String userId, text, movieName, movieTime;
+    String userId, text, movieName, movieTime, movieDate;
     TextView show;
     double moviePrice = 0, ttp;
     int count = 0;
@@ -50,8 +50,10 @@ public class payment_history extends AppCompatActivity {
                     }
                     movieName = childSnapshot.child("Movie").child("movie_name").getValue(String.class);
                     movieTime = childSnapshot.child("Movie").child("movie_time").getValue(String.class);
+                    movieDate = childSnapshot.child("Movie").child("movie_Date").getValue(String.class);
                     String movieSeat = childSnapshot.child("Movie").child("seat").getValue(String.class);
                     text += "Movie\n" + movieName + " ---- " + String.format("RM%.2f", moviePrice) + " ---- " + movieTime + "\n";
+                    text += "Date : " + movieDate + "\n";
                     for (int index = 0; index < count; index++) {
                         if (movieSeat.charAt(index) == '1') {
                             //selectId[index] = 1;
