@@ -1,6 +1,7 @@
 package com.example.assignment;
 
 import android.app.AppComponentFactory;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -494,6 +495,9 @@ public class add_on1 extends AppCompatActivity {
         }else
             add1.child("Beverages4").removeValue();
         finish();
+
+        Intent nextIntent = new Intent(view.getContext(), credit_card_payment.class);
+        startActivity(nextIntent);
     }
 
 }
