@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_purchase_history"
             android:title="Purchase History" />
         <item
+            android:id="@+id/add_on"
+            android:icon="@drawable/ic_add_on"
+            android:title="Add On"/>
+        <item
             android:id="@id/sign_out"
             android:icon="@drawable/ic_sign_out"
             android:title="Sign Out"/>

@@ -86,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent puchaseHistoryIntent = new Intent(MainActivity.this, payment_history.class);
                         startActivity(puchaseHistoryIntent);
                         break;
+                    case R.id.add_on:
+                        Intent addOnIntent = new Intent(MainActivity.this, add_on1.class);
+                        startActivity(addOnIntent);
+                        break;
                     case R.id.sign_out:
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent (MainActivity.this, Login.class);
