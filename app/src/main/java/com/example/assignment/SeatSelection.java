@@ -234,7 +234,7 @@ public class SeatSelection extends AppCompatActivity implements View.OnClickList
             //Toast.makeText(this, newSeat, Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, noSeat, Toast.LENGTH_SHORT).show();
             finish();
-            Intent intent = new Intent(view.getContext(), credit_card_payment.class);
+            Intent intent = new Intent(view.getContext(), add_on1.class);
             intent.putExtra("seat", newSeat);
             intent.putExtra("seatNo", noSeat);
             intent.putExtra("name", movieName); // Movie true name
