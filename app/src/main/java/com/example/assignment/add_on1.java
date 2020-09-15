@@ -1,10 +1,12 @@
 package com.example.assignment;
 
 import android.app.AppComponentFactory;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,8 +18,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -52,7 +57,7 @@ public class add_on1 extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_on1);
+        setContentView(R.layout.nav_add_on);
         //add1 = add.getReference("addOn");
         userId = userFirebase.getCurrentUser().getUid();
         L1 = (LinearLayout) findViewById(R.id.promo_screen);
@@ -97,6 +102,46 @@ public class add_on1 extends AppCompatActivity {
         textBeverages2.setText(String.valueOf(numBeverages2));
         textBeverages3.setText(String.valueOf(numBeverages3));
         textBeverages4.setText(String.valueOf(numBeverages4));
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_profile:
+                        Intent profileIntent = new Intent(add_on1.this, profile.class);
+                        startActivity(profileIntent);
+                        break;
+                    case R.id.nav_movies:
+                        Intent movieIntent = new Intent(add_on1.this, MainActivity.class);
+                        startActivity(movieIntent);
+                        break;
+                    case R.id.nav_purchase_history:
+                        Intent puchaseHistoryIntent = new Intent(add_on1.this, payment_history.class);
+                        startActivity(puchaseHistoryIntent);
+                        break;
+                    case R.id.add_on:
+                        Toast.makeText(add_on1.this,"Already in Add On activity",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.sign_out:
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent (add_on1.this, Login.class);
+                        startActivity(intent);
+                }
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+
+        View navIcon = findViewById(R.id.toolbar_icon);
+        navIcon.setOnClickListener((new View.OnClickListener(){
+            @Override
+            public  void onClick(View v){
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        }));
     }
 
     public void onPromo(View view){

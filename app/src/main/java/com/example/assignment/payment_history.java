@@ -102,6 +102,14 @@ public class payment_history extends AppCompatActivity {
                     case R.id.nav_purchase_history:
                         Toast.makeText(payment_history.this,"Already in Payment History",Toast.LENGTH_SHORT).show();
                         break;
+                    case R.id.add_on:
+                        Intent addOnIntent = new Intent(payment_history.this, add_on1.class);
+                        startActivity(addOnIntent);
+                        break;
+                    case R.id.sign_out:
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent (payment_history.this, Login.class);
+                        startActivity(intent);
                 }
                 DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
                 drawerLayout.closeDrawer(GravityCompat.START);
