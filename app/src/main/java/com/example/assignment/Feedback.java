@@ -30,7 +30,7 @@ public class Feedback extends AppCompatActivity {
     Button submitComment, retrieveComment;
     Comment comm;
 
-    DatabaseReference reff, reff2;
+    DatabaseReference ref1, ref2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +42,13 @@ public class Feedback extends AppCompatActivity {
         submitComment = (Button)findViewById(R.id.submitComment);
         retrieveComment = (Button)findViewById(R.id.retrieve);
         comm = new Comment();
-        reff = FirebaseDatabase.getInstance().getReference().child("Comment");
+        ref1 = FirebaseDatabase.getInstance().getReference().child("Comment");
 
         submitComment.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 comm.setComment(comment.getText().toString().trim());
-                reff.child("Comment").setValue(comm);
+                ref1.child("Comment").setValue(comm);
                 Toast.makeText(Feedback.this,"Feedback Sent!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -56,8 +56,8 @@ public class Feedback extends AppCompatActivity {
         retrieveComment.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                reff2 = FirebaseDatabase.getInstance().getReference().child("Comment").child("Comment");
-                reff2.addValueEventListener(new ValueEventListener() {
+                ref2 = FirebaseDatabase.getInstance().getReference().child("Comment").child("Comment");
+                ref2.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         Toast.makeText(Feedback.this,"Comment retrieved!", Toast.LENGTH_SHORT).show();
