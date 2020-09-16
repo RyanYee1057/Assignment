@@ -14,12 +14,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".payment_history"
+        <activity android:name=".Feedback"
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
+        <activity
+            android:name=".payment_history"
             android:label="Payment History"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".payment_success" />
         <activity android:name=".credit_card_payment" />
-        <activity android:name=".SeatSelection"></activity>
+        <activity android:name=".SeatSelection" />
         <activity android:name=".Bloodshot" />
         <activity android:name=".Sonic" />
         <activity android:name=".Onward" />
@@ -37,16 +40,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".profile"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Login"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".SignUp"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ForgotPwd"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".add_on1"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignUp"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ForgotPwd"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".add_on1"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
