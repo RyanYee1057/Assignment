@@ -106,6 +106,10 @@ public class payment_history extends AppCompatActivity {
                         Intent addOnIntent = new Intent(payment_history.this, add_on1.class);
                         startActivity(addOnIntent);
                         break;
+                    case R.id.feedback:
+                        Intent feedbackIntent = new Intent(payment_history.this, Feedback.class);
+                        startActivity(feedbackIntent);
+                        break;
                     case R.id.sign_out:
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent (payment_history.this, Login.class);

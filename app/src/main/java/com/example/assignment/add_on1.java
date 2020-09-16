@@ -123,6 +123,10 @@ public class add_on1 extends AppCompatActivity {
                     case R.id.add_on:
                         Toast.makeText(add_on1.this,"Already in Add On activity",Toast.LENGTH_SHORT).show();
                         break;
+                    case R.id.feedback:
+                        Intent feedbackIntent = new Intent(add_on1.this, Feedback.class);
+                        startActivity(feedbackIntent);
+                        break;
                     case R.id.sign_out:
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent (add_on1.this, Login.class);

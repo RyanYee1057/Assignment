@@ -90,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent addOnIntent = new Intent(MainActivity.this, add_on1.class);
                         startActivity(addOnIntent);
                         break;
+                    case R.id.feedback:
+                        Intent feedbackIntent = new Intent(MainActivity.this, Feedback.class);
+                        startActivity(feedbackIntent);
+                        break;
                     case R.id.sign_out:
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent (MainActivity.this, Login.class);
